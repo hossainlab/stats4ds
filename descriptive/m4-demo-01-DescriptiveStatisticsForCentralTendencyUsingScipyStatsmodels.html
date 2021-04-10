@@ -1,0 +1,2375 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>&lt;no title&gt; &#8212; Statistics Using Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/stats.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/stats.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Statistics Using Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/descriptive/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/hossainlab/statsandpy/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/hossainlab/statsandpy/master?urlpath=tree/book/descriptive/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/hossainlab/statsandpy/blob/master/book/descriptive/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="simple nav section-nav flex-column">
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U scipy
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already up-to-date: scipy in /home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages (1.5.4)
+Requirement already satisfied, skipping upgrade: numpy&gt;=1.14.5 in /home/jubayer/.local/lib/python3.7/site-packages (from scipy) (1.19.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 20.2.3; however, version 20.3.1 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/home/jubayer/anaconda3/envs/dsn-template/bin/python3.7 -m pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="o">!</span>pip install -U statsmodels
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting statsmodels
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading statsmodels-0.12.1-cp37-cp37m-manylinux1_x86_64.whl (9.5 MB)
+?25l
+     |                                | 10 kB 5.8 MB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |                                | 20 kB 140 kB/s eta 0:01:08
+     |                                | 30 kB 200 kB/s eta 0:00:48
+     |▏                               | 40 kB 258 kB/s eta 0:00:37
+     |▏                               | 51 kB 316 kB/s eta 0:00:30
+     |▏                               | 61 kB 368 kB/s eta 0:00:26
+     |▎                               | 71 kB 420 kB/s eta 0:00:23
+     |▎                               | 81 kB 470 kB/s eta 0:00:20
+     |▎                               | 92 kB 517 kB/s eta 0:00:19
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |▍                               | 102 kB 539 kB/s eta 0:00:18
+     |▍                               | 112 kB 539 kB/s eta 0:00:18
+     |▍                               | 122 kB 539 kB/s eta 0:00:18
+     |▌                               | 133 kB 539 kB/s eta 0:00:18
+     |▌                               | 143 kB 539 kB/s eta 0:00:18
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |▌                               | 153 kB 539 kB/s eta 0:00:18
+     |▌                               | 163 kB 539 kB/s eta 0:00:18
+     |▋                               | 174 kB 539 kB/s eta 0:00:18
+     |▋                               | 184 kB 539 kB/s eta 0:00:18
+     |▋                               | 194 kB 539 kB/s eta 0:00:18
+     |▊                               | 204 kB 539 kB/s eta 0:00:18
+     |▊                               | 215 kB 539 kB/s eta 0:00:18
+     |▊                               | 225 kB 539 kB/s eta 0:00:18
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |▉                               | 235 kB 539 kB/s eta 0:00:18
+     |▉                               | 245 kB 539 kB/s eta 0:00:18
+     |▉                               | 256 kB 539 kB/s eta 0:00:18
+     |█                               | 266 kB 539 kB/s eta 0:00:18
+     |█                               | 276 kB 539 kB/s eta 0:00:18
+     |█                               | 286 kB 539 kB/s eta 0:00:18
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█                               | 296 kB 539 kB/s eta 0:00:17
+     |█                               | 307 kB 539 kB/s eta 0:00:17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█                               | 317 kB 539 kB/s eta 0:00:17
+     |█                               | 327 kB 539 kB/s eta 0:00:17
+     |█▏                              | 337 kB 539 kB/s eta 0:00:17
+     |█▏                              | 348 kB 539 kB/s eta 0:00:17
+     |█▏                              | 358 kB 539 kB/s eta 0:00:17
+     |█▎                              | 368 kB 539 kB/s eta 0:00:17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█▎                              | 378 kB 539 kB/s eta 0:00:17
+     |█▎                              | 389 kB 539 kB/s eta 0:00:17
+     |█▍                              | 399 kB 539 kB/s eta 0:00:17
+     |█▍                              | 409 kB 539 kB/s eta 0:00:17
+     |█▍                              | 419 kB 539 kB/s eta 0:00:17
+     |█▌                              | 430 kB 539 kB/s eta 0:00:17
+     |█▌                              | 440 kB 539 kB/s eta 0:00:17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█▌                              | 450 kB 539 kB/s eta 0:00:17
+     |█▋                              | 460 kB 539 kB/s eta 0:00:17
+     |█▋                              | 471 kB 539 kB/s eta 0:00:17
+     |█▋                              | 481 kB 539 kB/s eta 0:00:17
+     |█▋                              | 491 kB 539 kB/s eta 0:00:17
+     |█▊                              | 501 kB 539 kB/s eta 0:00:17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█▊                              | 512 kB 539 kB/s eta 0:00:17
+     |█▊                              | 522 kB 539 kB/s eta 0:00:17
+     |█▉                              | 532 kB 539 kB/s eta 0:00:17
+     |█▉                              | 542 kB 539 kB/s eta 0:00:17
+     |█▉                              | 552 kB 539 kB/s eta 0:00:17
+     |██                              | 563 kB 539 kB/s eta 0:00:17
+     |██                              | 573 kB 539 kB/s eta 0:00:17
+     |██                              | 583 kB 539 kB/s eta 0:00:17
+     |██                              | 593 kB 539 kB/s eta 0:00:17
+     |██                              | 604 kB 539 kB/s eta 0:00:17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██                              | 614 kB 539 kB/s eta 0:00:17
+     |██▏                             | 624 kB 539 kB/s eta 0:00:17
+     |██▏                             | 634 kB 539 kB/s eta 0:00:17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██▏                             | 645 kB 539 kB/s eta 0:00:17
+     |██▏                             | 655 kB 539 kB/s eta 0:00:17
+     |██▎                             | 665 kB 539 kB/s eta 0:00:17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██▎                             | 675 kB 539 kB/s eta 0:00:17
+     |██▎                             | 686 kB 539 kB/s eta 0:00:17
+     |██▍                             | 696 kB 539 kB/s eta 0:00:17
+     |██▍                             | 706 kB 539 kB/s eta 0:00:17
+     |██▍                             | 716 kB 539 kB/s eta 0:00:17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██▌                             | 727 kB 539 kB/s eta 0:00:17
+     |██▌                             | 737 kB 539 kB/s eta 0:00:17
+     |██▌                             | 747 kB 539 kB/s eta 0:00:17
+     |██▋                             | 757 kB 539 kB/s eta 0:00:17
+     |██▋                             | 768 kB 539 kB/s eta 0:00:17
+     |██▋                             | 778 kB 539 kB/s eta 0:00:17
+     |██▋                             | 788 kB 539 kB/s eta 0:00:17
+     |██▊                             | 798 kB 539 kB/s eta 0:00:17
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██▊                             | 808 kB 539 kB/s eta 0:00:17
+     |██▊                             | 819 kB 539 kB/s eta 0:00:17
+     |██▉                             | 829 kB 539 kB/s eta 0:00:17
+     |██▉                             | 839 kB 539 kB/s eta 0:00:16
+     |██▉                             | 849 kB 539 kB/s eta 0:00:16
+     |███                             | 860 kB 539 kB/s eta 0:00:16
+     |███                             | 870 kB 539 kB/s eta 0:00:16
+     |███                             | 880 kB 539 kB/s eta 0:00:16
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███                             | 890 kB 539 kB/s eta 0:00:16
+     |███                             | 901 kB 539 kB/s eta 0:00:16
+     |███                             | 911 kB 539 kB/s eta 0:00:16
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███▏                            | 921 kB 539 kB/s eta 0:00:16
+     |███▏                            | 931 kB 539 kB/s eta 0:00:16
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███▏                            | 942 kB 539 kB/s eta 0:00:16
+     |███▏                            | 952 kB 539 kB/s eta 0:00:16
+     |███▎                            | 962 kB 539 kB/s eta 0:00:16
+     |███▎                            | 972 kB 539 kB/s eta 0:00:16
+     |███▎                            | 983 kB 539 kB/s eta 0:00:16
+     |███▍                            | 993 kB 539 kB/s eta 0:00:16
+     |███▍                            | 1.0 MB 539 kB/s eta 0:00:16
+     |███▍                            | 1.0 MB 539 kB/s eta 0:00:16
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███▌                            | 1.0 MB 539 kB/s eta 0:00:16
+     |███▌                            | 1.0 MB 539 kB/s eta 0:00:16
+     |███▌                            | 1.0 MB 539 kB/s eta 0:00:16
+     |███▋                            | 1.1 MB 539 kB/s eta 0:00:16
+     |███▋                            | 1.1 MB 539 kB/s eta 0:00:16
+     |███▋                            | 1.1 MB 539 kB/s eta 0:00:16
+     |███▊                            | 1.1 MB 539 kB/s eta 0:00:16
+     |███▊                            | 1.1 MB 539 kB/s eta 0:00:16
+     |███▊                            | 1.1 MB 539 kB/s eta 0:00:16
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███▊                            | 1.1 MB 539 kB/s eta 0:00:16
+     |███▉                            | 1.1 MB 539 kB/s eta 0:00:16
+     |███▉                            | 1.1 MB 539 kB/s eta 0:00:16
+     |███▉                            | 1.1 MB 539 kB/s eta 0:00:16
+     |████                            | 1.2 MB 539 kB/s eta 0:00:16
+     |████                            | 1.2 MB 539 kB/s eta 0:00:16
+     |████                            | 1.2 MB 539 kB/s eta 0:00:16
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████                            | 1.2 MB 539 kB/s eta 0:00:16
+     |████                            | 1.2 MB 1.0 MB/s eta 0:00:08
+     |████                            | 1.2 MB 1.0 MB/s eta 0:00:08
+     |████▏                           | 1.2 MB 1.0 MB/s eta 0:00:08
+     |████▏                           | 1.2 MB 1.0 MB/s eta 0:00:08
+     |████▏                           | 1.2 MB 1.0 MB/s eta 0:00:08
+     |████▎                           | 1.2 MB 1.0 MB/s eta 0:00:08
+     |████▎                           | 1.3 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████▎                           | 1.3 MB 1.0 MB/s eta 0:00:08
+     |████▎                           | 1.3 MB 1.0 MB/s eta 0:00:08
+     |████▍                           | 1.3 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████▍                           | 1.3 MB 1.0 MB/s eta 0:00:08
+     |████▍                           | 1.3 MB 1.0 MB/s eta 0:00:08
+     |████▌                           | 1.3 MB 1.0 MB/s eta 0:00:08
+     |████▌                           | 1.3 MB 1.0 MB/s eta 0:00:08
+     |████▌                           | 1.3 MB 1.0 MB/s eta 0:00:08
+     |████▋                           | 1.4 MB 1.0 MB/s eta 0:00:08
+     |████▋                           | 1.4 MB 1.0 MB/s eta 0:00:08
+     |████▋                           | 1.4 MB 1.0 MB/s eta 0:00:08
+     |████▊                           | 1.4 MB 1.0 MB/s eta 0:00:08
+     |████▊                           | 1.4 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████▊                           | 1.4 MB 1.0 MB/s eta 0:00:08
+     |████▉                           | 1.4 MB 1.0 MB/s eta 0:00:08
+     |████▉                           | 1.4 MB 1.0 MB/s eta 0:00:08
+     |████▉                           | 1.4 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████▉                           | 1.4 MB 1.0 MB/s eta 0:00:08
+     |█████                           | 1.5 MB 1.0 MB/s eta 0:00:08
+     |█████                           | 1.5 MB 1.0 MB/s eta 0:00:08
+     |█████                           | 1.5 MB 1.0 MB/s eta 0:00:08
+     |█████                           | 1.5 MB 1.0 MB/s eta 0:00:08
+     |█████                           | 1.5 MB 1.0 MB/s eta 0:00:08
+     |█████                           | 1.5 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████▏                          | 1.5 MB 1.0 MB/s eta 0:00:08
+     |█████▏                          | 1.5 MB 1.0 MB/s eta 0:00:08
+     |█████▏                          | 1.5 MB 1.0 MB/s eta 0:00:08
+     |█████▎                          | 1.5 MB 1.0 MB/s eta 0:00:08
+     |█████▎                          | 1.6 MB 1.0 MB/s eta 0:00:08
+     |█████▎                          | 1.6 MB 1.0 MB/s eta 0:00:08
+     |█████▎                          | 1.6 MB 1.0 MB/s eta 0:00:08
+     |█████▍                          | 1.6 MB 1.0 MB/s eta 0:00:08
+     |█████▍                          | 1.6 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████▍                          | 1.6 MB 1.0 MB/s eta 0:00:08
+     |█████▌                          | 1.6 MB 1.0 MB/s eta 0:00:08
+     |█████▌                          | 1.6 MB 1.0 MB/s eta 0:00:08
+     |█████▌                          | 1.6 MB 1.0 MB/s eta 0:00:08
+     |█████▋                          | 1.6 MB 1.0 MB/s eta 0:00:08
+     |█████▋                          | 1.7 MB 1.0 MB/s eta 0:00:08
+     |█████▋                          | 1.7 MB 1.0 MB/s eta 0:00:08
+     |█████▊                          | 1.7 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████▊                          | 1.7 MB 1.0 MB/s eta 0:00:08
+     |█████▊                          | 1.7 MB 1.0 MB/s eta 0:00:08
+     |█████▉                          | 1.7 MB 1.0 MB/s eta 0:00:08
+     |█████▉                          | 1.7 MB 1.0 MB/s eta 0:00:08
+     |█████▉                          | 1.7 MB 1.0 MB/s eta 0:00:08
+     |█████▉                          | 1.7 MB 1.0 MB/s eta 0:00:08
+     |██████                          | 1.8 MB 1.0 MB/s eta 0:00:08
+     |██████                          | 1.8 MB 1.0 MB/s eta 0:00:08
+     |██████                          | 1.8 MB 1.0 MB/s eta 0:00:08
+     |██████                          | 1.8 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████                          | 1.8 MB 1.0 MB/s eta 0:00:08
+     |██████                          | 1.8 MB 1.0 MB/s eta 0:00:08
+     |██████▏                         | 1.8 MB 1.0 MB/s eta 0:00:08
+     |██████▏                         | 1.8 MB 1.0 MB/s eta 0:00:08
+     |██████▏                         | 1.8 MB 1.0 MB/s eta 0:00:08
+     |██████▎                         | 1.8 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████▎                         | 1.9 MB 1.0 MB/s eta 0:00:08
+     |██████▎                         | 1.9 MB 1.0 MB/s eta 0:00:08
+     |██████▍                         | 1.9 MB 1.0 MB/s eta 0:00:08
+     |██████▍                         | 1.9 MB 1.0 MB/s eta 0:00:08
+     |██████▍                         | 1.9 MB 1.0 MB/s eta 0:00:08
+     |██████▍                         | 1.9 MB 1.0 MB/s eta 0:00:08
+     |██████▌                         | 1.9 MB 1.0 MB/s eta 0:00:08
+     |██████▌                         | 1.9 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████▌                         | 1.9 MB 1.0 MB/s eta 0:00:08
+     |██████▋                         | 1.9 MB 1.0 MB/s eta 0:00:08
+     |██████▋                         | 2.0 MB 1.0 MB/s eta 0:00:08
+     |██████▋                         | 2.0 MB 1.0 MB/s eta 0:00:08
+     |██████▊                         | 2.0 MB 1.0 MB/s eta 0:00:08
+     |██████▊                         | 2.0 MB 1.0 MB/s eta 0:00:08
+     |██████▊                         | 2.0 MB 1.0 MB/s eta 0:00:08
+     |██████▉                         | 2.0 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████▉                         | 2.0 MB 1.0 MB/s eta 0:00:08
+     |██████▉                         | 2.0 MB 1.0 MB/s eta 0:00:08
+     |███████                         | 2.0 MB 1.0 MB/s eta 0:00:08
+     |███████                         | 2.0 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████                         | 2.1 MB 1.0 MB/s eta 0:00:08
+     |███████                         | 2.1 MB 1.0 MB/s eta 0:00:08
+     |███████                         | 2.1 MB 1.0 MB/s eta 0:00:08
+     |███████                         | 2.1 MB 1.0 MB/s eta 0:00:08
+     |███████                         | 2.1 MB 1.0 MB/s eta 0:00:08
+     |███████▏                        | 2.1 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████▏                        | 2.1 MB 1.0 MB/s eta 0:00:08
+     |███████▏                        | 2.1 MB 1.0 MB/s eta 0:00:08
+     |███████▎                        | 2.1 MB 1.0 MB/s eta 0:00:08
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████▎                        | 2.2 MB 1.0 MB/s eta 0:00:08
+     |███████▎                        | 2.2 MB 1.0 MB/s eta 0:00:07
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████▍                        | 2.2 MB 1.0 MB/s eta 0:00:07
+     |███████▍                        | 2.2 MB 1.0 MB/s eta 0:00:07
+     |███████▍                        | 2.2 MB 1.0 MB/s eta 0:00:07
+     |███████▍                        | 2.2 MB 1.0 MB/s eta 0:00:07
+     |███████▌                        | 2.2 MB 1.0 MB/s eta 0:00:07
+     |███████▌                        | 2.2 MB 1.0 MB/s eta 0:00:07
+     |███████▌                        | 2.2 MB 1.0 MB/s eta 0:00:07
+     |███████▋                        | 2.2 MB 1.0 MB/s eta 0:00:07
+     |███████▋                        | 2.3 MB 1.0 MB/s eta 0:00:07
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████▋                        | 2.3 MB 1.4 MB/s eta 0:00:06
+     |███████▊                        | 2.3 MB 1.4 MB/s eta 0:00:06
+     |███████▊                        | 2.3 MB 1.4 MB/s eta 0:00:06
+     |███████▊                        | 2.3 MB 1.4 MB/s eta 0:00:06
+     |███████▉                        | 2.3 MB 1.4 MB/s eta 0:00:06
+     |███████▉                        | 2.3 MB 1.4 MB/s eta 0:00:06
+     |███████▉                        | 2.3 MB 1.4 MB/s eta 0:00:06
+     |████████                        | 2.3 MB 1.4 MB/s eta 0:00:06
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████                        | 2.3 MB 1.4 MB/s eta 0:00:06
+     |████████                        | 2.4 MB 1.4 MB/s eta 0:00:06
+     |████████                        | 2.4 MB 1.4 MB/s eta 0:00:06
+     |████████                        | 2.4 MB 1.4 MB/s eta 0:00:06
+     |████████                        | 2.4 MB 1.4 MB/s eta 0:00:06
+     |████████                        | 2.4 MB 1.4 MB/s eta 0:00:06
+     |████████▏                       | 2.4 MB 1.4 MB/s eta 0:00:06
+     |████████▏                       | 2.4 MB 1.4 MB/s eta 0:00:06
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████▏                       | 2.4 MB 1.4 MB/s eta 0:00:06
+     |████████▎                       | 2.4 MB 1.4 MB/s eta 0:00:06
+     |████████▎                       | 2.4 MB 1.4 MB/s eta 0:00:06
+     |████████▎                       | 2.5 MB 1.4 MB/s eta 0:00:06
+     |████████▍                       | 2.5 MB 1.4 MB/s eta 0:00:06
+     |████████▍                       | 2.5 MB 1.4 MB/s eta 0:00:06
+     |████████▍                       | 2.5 MB 1.4 MB/s eta 0:00:06
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████▌                       | 2.5 MB 1.4 MB/s eta 0:00:06
+     |████████▌                       | 2.5 MB 1.4 MB/s eta 0:00:06
+     |████████▌                       | 2.5 MB 1.4 MB/s eta 0:00:06
+     |████████▌                       | 2.5 MB 1.4 MB/s eta 0:00:06
+     |████████▋                       | 2.5 MB 1.4 MB/s eta 0:00:06
+     |████████▋                       | 2.5 MB 1.4 MB/s eta 0:00:06
+     |████████▋                       | 2.6 MB 1.4 MB/s eta 0:00:06
+     |████████▊                       | 2.6 MB 1.4 MB/s eta 0:00:06
+     |████████▊                       | 2.6 MB 1.4 MB/s eta 0:00:06
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████▊                       | 2.6 MB 1.4 MB/s eta 0:00:06
+     |████████▉                       | 2.6 MB 1.4 MB/s eta 0:00:06
+     |████████▉                       | 2.6 MB 1.4 MB/s eta 0:00:06
+     |████████▉                       | 2.6 MB 1.4 MB/s eta 0:00:06
+     |█████████                       | 2.6 MB 1.4 MB/s eta 0:00:06
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████                       | 2.6 MB 1.4 MB/s eta 0:00:06
+     |█████████                       | 2.7 MB 1.4 MB/s eta 0:00:06
+     |█████████                       | 2.7 MB 1.4 MB/s eta 0:00:06
+     |█████████                       | 2.7 MB 1.4 MB/s eta 0:00:05
+     |█████████                       | 2.7 MB 1.4 MB/s eta 0:00:05
+     |█████████                       | 2.7 MB 1.4 MB/s eta 0:00:05
+     |█████████▏                      | 2.7 MB 1.4 MB/s eta 0:00:05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████▏                      | 2.7 MB 1.4 MB/s eta 0:00:05
+     |█████████▏                      | 2.7 MB 1.4 MB/s eta 0:00:05
+     |█████████▎                      | 2.7 MB 1.4 MB/s eta 0:00:05
+     |█████████▎                      | 2.7 MB 1.4 MB/s eta 0:00:05
+     |█████████▎                      | 2.8 MB 1.4 MB/s eta 0:00:05
+     |█████████▍                      | 2.8 MB 1.4 MB/s eta 0:00:05
+     |█████████▍                      | 2.8 MB 1.4 MB/s eta 0:00:05
+     |█████████▍                      | 2.8 MB 1.4 MB/s eta 0:00:05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████▌                      | 2.8 MB 1.4 MB/s eta 0:00:05
+     |█████████▌                      | 2.8 MB 1.4 MB/s eta 0:00:05
+     |█████████▌                      | 2.8 MB 1.4 MB/s eta 0:00:05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████▋                      | 2.8 MB 1.4 MB/s eta 0:00:05
+     |█████████▋                      | 2.8 MB 1.4 MB/s eta 0:00:05
+     |█████████▋                      | 2.8 MB 1.4 MB/s eta 0:00:05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████▋                      | 2.9 MB 1.4 MB/s eta 0:00:05
+     |█████████▊                      | 2.9 MB 1.4 MB/s eta 0:00:05
+     |█████████▊                      | 2.9 MB 1.4 MB/s eta 0:00:05
+     |█████████▊                      | 2.9 MB 1.4 MB/s eta 0:00:05
+     |█████████▉                      | 2.9 MB 1.4 MB/s eta 0:00:05
+     |█████████▉                      | 2.9 MB 1.4 MB/s eta 0:00:05
+     |█████████▉                      | 2.9 MB 1.4 MB/s eta 0:00:05
+     |██████████                      | 2.9 MB 1.4 MB/s eta 0:00:05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████                      | 2.9 MB 1.4 MB/s eta 0:00:05
+     |██████████                      | 2.9 MB 1.4 MB/s eta 0:00:05
+     |██████████                      | 3.0 MB 1.4 MB/s eta 0:00:05
+     |██████████                      | 3.0 MB 1.4 MB/s eta 0:00:05
+     |██████████                      | 3.0 MB 1.4 MB/s eta 0:00:05
+     |██████████                      | 3.0 MB 1.4 MB/s eta 0:00:05
+     |██████████▏                     | 3.0 MB 1.4 MB/s eta 0:00:05
+     |██████████▏                     | 3.0 MB 1.4 MB/s eta 0:00:05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████▏                     | 3.0 MB 1.4 MB/s eta 0:00:05
+     |██████████▎                     | 3.0 MB 1.4 MB/s eta 0:00:05
+     |██████████▎                     | 3.0 MB 1.4 MB/s eta 0:00:05
+     |██████████▎                     | 3.1 MB 1.4 MB/s eta 0:00:05
+     |██████████▍                     | 3.1 MB 1.4 MB/s eta 0:00:05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████▍                     | 3.1 MB 1.4 MB/s eta 0:00:05
+     |██████████▍                     | 3.1 MB 1.4 MB/s eta 0:00:05
+     |██████████▌                     | 3.1 MB 1.4 MB/s eta 0:00:05
+     |██████████▌                     | 3.1 MB 1.4 MB/s eta 0:00:05
+     |██████████▌                     | 3.1 MB 1.4 MB/s eta 0:00:05
+     |██████████▋                     | 3.1 MB 1.4 MB/s eta 0:00:05
+     |██████████▋                     | 3.1 MB 1.4 MB/s eta 0:00:05
+     |██████████▋                     | 3.1 MB 1.4 MB/s eta 0:00:05
+     |██████████▋                     | 3.2 MB 1.4 MB/s eta 0:00:05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████▊                     | 3.2 MB 1.4 MB/s eta 0:00:05
+     |██████████▊                     | 3.2 MB 1.4 MB/s eta 0:00:05
+     |██████████▊                     | 3.2 MB 1.4 MB/s eta 0:00:05
+     |██████████▉                     | 3.2 MB 1.4 MB/s eta 0:00:05
+     |██████████▉                     | 3.2 MB 1.4 MB/s eta 0:00:05
+     |██████████▉                     | 3.2 MB 1.4 MB/s eta 0:00:05
+     |███████████                     | 3.2 MB 1.4 MB/s eta 0:00:05
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████                     | 3.2 MB 1.4 MB/s eta 0:00:05
+     |███████████                     | 3.2 MB 1.4 MB/s eta 0:00:05
+     |███████████                     | 3.3 MB 1.4 MB/s eta 0:00:05
+     |███████████                     | 3.3 MB 1.6 MB/s eta 0:00:04
+     |███████████                     | 3.3 MB 1.6 MB/s eta 0:00:04
+     |███████████▏                    | 3.3 MB 1.6 MB/s eta 0:00:04
+     |███████████▏                    | 3.3 MB 1.6 MB/s eta 0:00:04
+     |███████████▏                    | 3.3 MB 1.6 MB/s eta 0:00:04
+     |███████████▏                    | 3.3 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████▎                    | 3.3 MB 1.6 MB/s eta 0:00:04
+     |███████████▎                    | 3.3 MB 1.6 MB/s eta 0:00:04
+     |███████████▎                    | 3.3 MB 1.6 MB/s eta 0:00:04
+     |███████████▍                    | 3.4 MB 1.6 MB/s eta 0:00:04
+     |███████████▍                    | 3.4 MB 1.6 MB/s eta 0:00:04
+     |███████████▍                    | 3.4 MB 1.6 MB/s eta 0:00:04
+     |███████████▌                    | 3.4 MB 1.6 MB/s eta 0:00:04
+     |███████████▌                    | 3.4 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████▌                    | 3.4 MB 1.6 MB/s eta 0:00:04
+     |███████████▋                    | 3.4 MB 1.6 MB/s eta 0:00:04
+     |███████████▋                    | 3.4 MB 1.6 MB/s eta 0:00:04
+     |███████████▋                    | 3.4 MB 1.6 MB/s eta 0:00:04
+     |███████████▊                    | 3.5 MB 1.6 MB/s eta 0:00:04
+     |███████████▊                    | 3.5 MB 1.6 MB/s eta 0:00:04
+     |███████████▊                    | 3.5 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████▊                    | 3.5 MB 1.6 MB/s eta 0:00:04
+     |███████████▉                    | 3.5 MB 1.6 MB/s eta 0:00:04
+     |███████████▉                    | 3.5 MB 1.6 MB/s eta 0:00:04
+     |███████████▉                    | 3.5 MB 1.6 MB/s eta 0:00:04
+     |████████████                    | 3.5 MB 1.6 MB/s eta 0:00:04
+     |████████████                    | 3.5 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████                    | 3.5 MB 1.6 MB/s eta 0:00:04
+     |████████████                    | 3.6 MB 1.6 MB/s eta 0:00:04
+     |████████████                    | 3.6 MB 1.6 MB/s eta 0:00:04
+     |████████████                    | 3.6 MB 1.6 MB/s eta 0:00:04
+     |████████████▏                   | 3.6 MB 1.6 MB/s eta 0:00:04
+     |████████████▏                   | 3.6 MB 1.6 MB/s eta 0:00:04
+     |████████████▏                   | 3.6 MB 1.6 MB/s eta 0:00:04
+     |████████████▏                   | 3.6 MB 1.6 MB/s eta 0:00:04
+     |████████████▎                   | 3.6 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████▎                   | 3.6 MB 1.6 MB/s eta 0:00:04
+     |████████████▎                   | 3.6 MB 1.6 MB/s eta 0:00:04
+     |████████████▍                   | 3.7 MB 1.6 MB/s eta 0:00:04
+     |████████████▍                   | 3.7 MB 1.6 MB/s eta 0:00:04
+     |████████████▍                   | 3.7 MB 1.6 MB/s eta 0:00:04
+     |████████████▌                   | 3.7 MB 1.6 MB/s eta 0:00:04
+     |████████████▌                   | 3.7 MB 1.6 MB/s eta 0:00:04
+     |████████████▌                   | 3.7 MB 1.6 MB/s eta 0:00:04
+     |████████████▋                   | 3.7 MB 1.6 MB/s eta 0:00:04
+     |████████████▋                   | 3.7 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████▋                   | 3.7 MB 1.6 MB/s eta 0:00:04
+     |████████████▊                   | 3.7 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████▊                   | 3.8 MB 1.6 MB/s eta 0:00:04
+     |████████████▊                   | 3.8 MB 1.6 MB/s eta 0:00:04
+     |████████████▊                   | 3.8 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████▉                   | 3.8 MB 1.6 MB/s eta 0:00:04
+     |████████████▉                   | 3.8 MB 1.6 MB/s eta 0:00:04
+     |████████████▉                   | 3.8 MB 1.6 MB/s eta 0:00:04
+     |█████████████                   | 3.8 MB 1.6 MB/s eta 0:00:04
+     |█████████████                   | 3.8 MB 1.6 MB/s eta 0:00:04
+     |█████████████                   | 3.8 MB 1.6 MB/s eta 0:00:04
+     |█████████████                   | 3.9 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████                   | 3.9 MB 1.6 MB/s eta 0:00:04
+     |█████████████                   | 3.9 MB 1.6 MB/s eta 0:00:04
+     |█████████████▏                  | 3.9 MB 1.6 MB/s eta 0:00:04
+     |█████████████▏                  | 3.9 MB 1.6 MB/s eta 0:00:04
+     |█████████████▏                  | 3.9 MB 1.6 MB/s eta 0:00:04
+     |█████████████▎                  | 3.9 MB 1.6 MB/s eta 0:00:04
+     |█████████████▎                  | 3.9 MB 1.6 MB/s eta 0:00:04
+     |█████████████▎                  | 3.9 MB 1.6 MB/s eta 0:00:04
+     |█████████████▎                  | 3.9 MB 1.6 MB/s eta 0:00:04
+     |█████████████▍                  | 4.0 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████▍                  | 4.0 MB 1.6 MB/s eta 0:00:04
+     |█████████████▍                  | 4.0 MB 1.6 MB/s eta 0:00:04
+     |█████████████▌                  | 4.0 MB 1.6 MB/s eta 0:00:04
+     |█████████████▌                  | 4.0 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████▌                  | 4.0 MB 1.6 MB/s eta 0:00:04
+     |█████████████▋                  | 4.0 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████▋                  | 4.0 MB 1.6 MB/s eta 0:00:04
+     |█████████████▋                  | 4.0 MB 1.6 MB/s eta 0:00:04
+     |█████████████▊                  | 4.0 MB 1.6 MB/s eta 0:00:04
+     |█████████████▊                  | 4.1 MB 1.6 MB/s eta 0:00:04
+     |█████████████▊                  | 4.1 MB 1.6 MB/s eta 0:00:04
+     |█████████████▉                  | 4.1 MB 1.6 MB/s eta 0:00:04
+     |█████████████▉                  | 4.1 MB 1.6 MB/s eta 0:00:04
+     |█████████████▉                  | 4.1 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████▉                  | 4.1 MB 1.6 MB/s eta 0:00:04
+     |██████████████                  | 4.1 MB 1.6 MB/s eta 0:00:04
+     |██████████████                  | 4.1 MB 1.6 MB/s eta 0:00:04
+     |██████████████                  | 4.1 MB 1.6 MB/s eta 0:00:04
+     |██████████████                  | 4.1 MB 1.6 MB/s eta 0:00:04
+     |██████████████                  | 4.2 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████                  | 4.2 MB 1.6 MB/s eta 0:00:04
+     |██████████████▏                 | 4.2 MB 1.6 MB/s eta 0:00:04
+     |██████████████▏                 | 4.2 MB 1.6 MB/s eta 0:00:04
+     |██████████████▏                 | 4.2 MB 1.6 MB/s eta 0:00:04
+     |██████████████▎                 | 4.2 MB 1.6 MB/s eta 0:00:04
+     |██████████████▎                 | 4.2 MB 1.6 MB/s eta 0:00:04
+     |██████████████▎                 | 4.2 MB 1.6 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████▍                 | 4.2 MB 1.6 MB/s eta 0:00:04
+     |██████████████▍                 | 4.2 MB 1.6 MB/s eta 0:00:04
+     |██████████████▍                 | 4.3 MB 1.6 MB/s eta 0:00:04
+     |██████████████▍                 | 4.3 MB 1.6 MB/s eta 0:00:04
+     |██████████████▌                 | 4.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████▌                 | 4.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████▌                 | 4.3 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████▋                 | 4.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████▋                 | 4.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████▋                 | 4.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████▊                 | 4.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████▊                 | 4.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████▊                 | 4.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████▉                 | 4.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████▉                 | 4.4 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████▉                 | 4.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████▉                 | 4.4 MB 1.3 MB/s eta 0:00:04
+     |███████████████                 | 4.4 MB 1.3 MB/s eta 0:00:04
+     |███████████████                 | 4.4 MB 1.3 MB/s eta 0:00:04
+     |███████████████                 | 4.4 MB 1.3 MB/s eta 0:00:04
+     |███████████████                 | 4.4 MB 1.3 MB/s eta 0:00:04
+     |███████████████                 | 4.5 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████                 | 4.5 MB 1.3 MB/s eta 0:00:04
+     |███████████████▏                | 4.5 MB 1.3 MB/s eta 0:00:04
+     |███████████████▏                | 4.5 MB 1.3 MB/s eta 0:00:04
+     |███████████████▏                | 4.5 MB 1.3 MB/s eta 0:00:04
+     |███████████████▎                | 4.5 MB 1.3 MB/s eta 0:00:04
+     |███████████████▎                | 4.5 MB 1.3 MB/s eta 0:00:04
+     |███████████████▎                | 4.5 MB 1.3 MB/s eta 0:00:04
+     |███████████████▍                | 4.5 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████▍                | 4.5 MB 1.3 MB/s eta 0:00:04
+     |███████████████▍                | 4.6 MB 1.3 MB/s eta 0:00:04
+     |███████████████▍                | 4.6 MB 1.3 MB/s eta 0:00:04
+     |███████████████▌                | 4.6 MB 1.3 MB/s eta 0:00:04
+     |███████████████▌                | 4.6 MB 1.3 MB/s eta 0:00:04
+     |███████████████▌                | 4.6 MB 1.3 MB/s eta 0:00:04
+     |███████████████▋                | 4.6 MB 1.3 MB/s eta 0:00:04
+     |███████████████▋                | 4.6 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████▋                | 4.6 MB 1.3 MB/s eta 0:00:04
+     |███████████████▊                | 4.6 MB 1.3 MB/s eta 0:00:04
+     |███████████████▊                | 4.6 MB 1.3 MB/s eta 0:00:04
+     |███████████████▊                | 4.7 MB 1.3 MB/s eta 0:00:04
+     |███████████████▉                | 4.7 MB 1.3 MB/s eta 0:00:04
+     |███████████████▉                | 4.7 MB 1.3 MB/s eta 0:00:04
+     |███████████████▉                | 4.7 MB 1.3 MB/s eta 0:00:04
+     |████████████████                | 4.7 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████                | 4.7 MB 1.3 MB/s eta 0:00:04
+     |████████████████                | 4.7 MB 1.3 MB/s eta 0:00:04
+     |████████████████                | 4.7 MB 1.3 MB/s eta 0:00:04
+     |████████████████                | 4.7 MB 1.3 MB/s eta 0:00:04
+     |████████████████                | 4.8 MB 1.3 MB/s eta 0:00:04
+     |████████████████                | 4.8 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████▏               | 4.8 MB 1.3 MB/s eta 0:00:04
+     |████████████████▏               | 4.8 MB 1.3 MB/s eta 0:00:04
+     |████████████████▏               | 4.8 MB 1.3 MB/s eta 0:00:04
+     |████████████████▎               | 4.8 MB 1.3 MB/s eta 0:00:04
+     |████████████████▎               | 4.8 MB 1.3 MB/s eta 0:00:04
+     |████████████████▎               | 4.8 MB 1.3 MB/s eta 0:00:04
+     |████████████████▍               | 4.8 MB 1.3 MB/s eta 0:00:04
+     |████████████████▍               | 4.8 MB 1.3 MB/s eta 0:00:04
+     |████████████████▍               | 4.9 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████▌               | 4.9 MB 1.3 MB/s eta 0:00:04
+     |████████████████▌               | 4.9 MB 1.3 MB/s eta 0:00:04
+     |████████████████▌               | 4.9 MB 1.3 MB/s eta 0:00:04
+     |████████████████▌               | 4.9 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████▋               | 4.9 MB 1.3 MB/s eta 0:00:04
+     |████████████████▋               | 4.9 MB 1.3 MB/s eta 0:00:04
+     |████████████████▋               | 4.9 MB 1.3 MB/s eta 0:00:04
+     |████████████████▊               | 4.9 MB 1.3 MB/s eta 0:00:04
+     |████████████████▊               | 4.9 MB 1.3 MB/s eta 0:00:04
+     |████████████████▊               | 5.0 MB 1.3 MB/s eta 0:00:04
+     |████████████████▉               | 5.0 MB 1.3 MB/s eta 0:00:04
+     |████████████████▉               | 5.0 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████▉               | 5.0 MB 1.3 MB/s eta 0:00:04
+     |█████████████████               | 5.0 MB 1.3 MB/s eta 0:00:04
+     |█████████████████               | 5.0 MB 1.3 MB/s eta 0:00:04
+     |█████████████████               | 5.0 MB 1.3 MB/s eta 0:00:04
+     |█████████████████               | 5.0 MB 1.3 MB/s eta 0:00:04
+     |█████████████████               | 5.0 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████               | 5.0 MB 1.3 MB/s eta 0:00:04
+     |█████████████████               | 5.1 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▏              | 5.1 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▏              | 5.1 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▏              | 5.1 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▎              | 5.1 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▎              | 5.1 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▎              | 5.1 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████▍              | 5.1 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▍              | 5.1 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▍              | 5.2 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▌              | 5.2 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▌              | 5.2 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▌              | 5.2 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▌              | 5.2 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████▋              | 5.2 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████▋              | 5.2 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▋              | 5.2 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████▊              | 5.2 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▊              | 5.2 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▊              | 5.3 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▉              | 5.3 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▉              | 5.3 MB 1.3 MB/s eta 0:00:04
+     |█████████████████▉              | 5.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████████              | 5.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████████              | 5.3 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████              | 5.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████████              | 5.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████████              | 5.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████████              | 5.3 MB 1.3 MB/s eta 0:00:04
+     |██████████████████              | 5.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▏             | 5.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▏             | 5.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▏             | 5.4 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████▎             | 5.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▎             | 5.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▎             | 5.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▍             | 5.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▍             | 5.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▍             | 5.4 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▌             | 5.5 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▌             | 5.5 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████▌             | 5.5 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▋             | 5.5 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▋             | 5.5 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▋             | 5.5 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▋             | 5.5 MB 1.3 MB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████▊             | 5.5 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▊             | 5.5 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▊             | 5.6 MB 1.3 MB/s eta 0:00:04
+     |██████████████████▉             | 5.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████▉             | 5.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████▉             | 5.6 MB 1.3 MB/s eta 0:00:03
+     |███████████████████             | 5.6 MB 1.3 MB/s eta 0:00:03
+     |███████████████████             | 5.6 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████             | 5.6 MB 1.3 MB/s eta 0:00:03
+     |███████████████████             | 5.6 MB 1.3 MB/s eta 0:00:03
+     |███████████████████             | 5.6 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████             | 5.6 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▏            | 5.7 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▏            | 5.7 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▏            | 5.7 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▏            | 5.7 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▎            | 5.7 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████▎            | 5.7 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▎            | 5.7 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▍            | 5.7 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▍            | 5.7 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▍            | 5.7 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████▌            | 5.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▌            | 5.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▌            | 5.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▋            | 5.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▋            | 5.8 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████▋            | 5.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▋            | 5.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▊            | 5.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▊            | 5.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▊            | 5.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▉            | 5.9 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▉            | 5.9 MB 1.3 MB/s eta 0:00:03
+     |███████████████████▉            | 5.9 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████            | 5.9 MB 1.3 MB/s eta 0:00:03
+     |████████████████████            | 5.9 MB 1.3 MB/s eta 0:00:03
+     |████████████████████            | 5.9 MB 1.3 MB/s eta 0:00:03
+     |████████████████████            | 5.9 MB 1.3 MB/s eta 0:00:03
+     |████████████████████            | 5.9 MB 1.3 MB/s eta 0:00:03
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████            | 5.9 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▏           | 5.9 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▏           | 6.0 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▏           | 6.0 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▏           | 6.0 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▎           | 6.0 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████▎           | 6.0 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▎           | 6.0 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▍           | 6.0 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▍           | 6.0 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▍           | 6.0 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████▌           | 6.1 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▌           | 6.1 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▌           | 6.1 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▋           | 6.1 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▋           | 6.1 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▋           | 6.1 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▊           | 6.1 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▊           | 6.1 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████▊           | 6.1 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▊           | 6.1 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▉           | 6.2 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▉           | 6.2 MB 1.3 MB/s eta 0:00:03
+     |████████████████████▉           | 6.2 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████           | 6.2 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████           | 6.2 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████           | 6.2 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████           | 6.2 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████           | 6.2 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████           | 6.2 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▏          | 6.2 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▏          | 6.3 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▏          | 6.3 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▎          | 6.3 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▎          | 6.3 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▎          | 6.3 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▎          | 6.3 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████▍          | 6.3 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▍          | 6.3 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▍          | 6.3 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▌          | 6.3 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▌          | 6.4 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▌          | 6.4 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▋          | 6.4 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▋          | 6.4 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████▋          | 6.4 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▊          | 6.4 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▊          | 6.4 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▊          | 6.4 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████▊          | 6.4 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▉          | 6.5 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▉          | 6.5 MB 1.3 MB/s eta 0:00:03
+     |█████████████████████▉          | 6.5 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████          | 6.5 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████          | 6.5 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████          | 6.5 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████          | 6.5 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████          | 6.5 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████          | 6.5 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████▏         | 6.5 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▏         | 6.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▏         | 6.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▎         | 6.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▎         | 6.6 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████▎         | 6.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▎         | 6.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▍         | 6.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▍         | 6.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▍         | 6.6 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▌         | 6.6 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████▌         | 6.7 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▌         | 6.7 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▋         | 6.7 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████▋         | 6.7 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▋         | 6.7 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▊         | 6.7 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▊         | 6.7 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▊         | 6.7 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████▉         | 6.7 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▉         | 6.7 MB 1.3 MB/s eta 0:00:03
+     |██████████████████████▉         | 6.8 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████▉         | 6.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████         | 6.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████         | 6.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████         | 6.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████         | 6.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████         | 6.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████         | 6.8 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████▏        | 6.8 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████▏        | 6.9 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████▏        | 6.9 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████▎        | 6.9 MB 1.3 MB/s eta 0:00:03
+     |███████████████████████▎        | 6.9 MB 1.3 MB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████▎        | 6.9 MB 1.3 MB/s eta 0:00:02
+     |███████████████████████▍        | 6.9 MB 1.3 MB/s eta 0:00:02
+     |███████████████████████▍        | 6.9 MB 1.3 MB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████▍        | 6.9 MB 1.3 MB/s eta 0:00:02
+     |███████████████████████▍        | 6.9 MB 1.3 MB/s eta 0:00:02
+     |███████████████████████▌        | 6.9 MB 1.3 MB/s eta 0:00:02
+     |███████████████████████▌        | 7.0 MB 806 kB/s eta 0:00:04
+     |███████████████████████▌        | 7.0 MB 806 kB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████▋        | 7.0 MB 806 kB/s eta 0:00:04
+     |███████████████████████▋        | 7.0 MB 806 kB/s eta 0:00:04
+     |███████████████████████▋        | 7.0 MB 806 kB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████▊        | 7.0 MB 806 kB/s eta 0:00:04
+     |███████████████████████▊        | 7.0 MB 806 kB/s eta 0:00:04
+     |███████████████████████▊        | 7.0 MB 806 kB/s eta 0:00:04
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████▉        | 7.0 MB 806 kB/s eta 0:00:04
+     |███████████████████████▉        | 7.0 MB 806 kB/s eta 0:00:04
+     |███████████████████████▉        | 7.1 MB 806 kB/s eta 0:00:03
+     |████████████████████████        | 7.1 MB 806 kB/s eta 0:00:03
+     |████████████████████████        | 7.1 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████        | 7.1 MB 806 kB/s eta 0:00:03
+     |████████████████████████        | 7.1 MB 806 kB/s eta 0:00:03
+     |████████████████████████        | 7.1 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████        | 7.1 MB 806 kB/s eta 0:00:03
+     |████████████████████████        | 7.1 MB 806 kB/s eta 0:00:03
+     |████████████████████████▏       | 7.1 MB 806 kB/s eta 0:00:03
+     |████████████████████████▏       | 7.1 MB 806 kB/s eta 0:00:03
+     |████████████████████████▏       | 7.2 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████▎       | 7.2 MB 806 kB/s eta 0:00:03
+     |████████████████████████▎       | 7.2 MB 806 kB/s eta 0:00:03
+     |████████████████████████▎       | 7.2 MB 806 kB/s eta 0:00:03
+     |████████████████████████▍       | 7.2 MB 806 kB/s eta 0:00:03
+     |████████████████████████▍       | 7.2 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████▍       | 7.2 MB 806 kB/s eta 0:00:03
+     |████████████████████████▍       | 7.2 MB 806 kB/s eta 0:00:03
+     |████████████████████████▌       | 7.2 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████▌       | 7.2 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████▌       | 7.3 MB 806 kB/s eta 0:00:03
+     |████████████████████████▋       | 7.3 MB 806 kB/s eta 0:00:03
+     |████████████████████████▋       | 7.3 MB 806 kB/s eta 0:00:03
+     |████████████████████████▋       | 7.3 MB 806 kB/s eta 0:00:03
+     |████████████████████████▊       | 7.3 MB 806 kB/s eta 0:00:03
+     |████████████████████████▊       | 7.3 MB 806 kB/s eta 0:00:03
+     |████████████████████████▊       | 7.3 MB 806 kB/s eta 0:00:03
+     |████████████████████████▉       | 7.3 MB 806 kB/s eta 0:00:03
+     |████████████████████████▉       | 7.3 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████▉       | 7.4 MB 806 kB/s eta 0:00:03
+     |█████████████████████████       | 7.4 MB 806 kB/s eta 0:00:03
+     |█████████████████████████       | 7.4 MB 806 kB/s eta 0:00:03
+     |█████████████████████████       | 7.4 MB 806 kB/s eta 0:00:03
+     |█████████████████████████       | 7.4 MB 806 kB/s eta 0:00:03
+     |█████████████████████████       | 7.4 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████       | 7.4 MB 806 kB/s eta 0:00:03
+     |█████████████████████████       | 7.4 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▏      | 7.4 MB 806 kB/s eta 0:00:03
+
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████▏      | 7.4 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▏      | 7.5 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▎      | 7.5 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▎      | 7.5 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▎      | 7.5 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▍      | 7.5 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████▍      | 7.5 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▍      | 7.5 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▌      | 7.5 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▌      | 7.5 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▌      | 7.5 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████▌      | 7.6 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▋      | 7.6 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▋      | 7.6 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▋      | 7.6 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▊      | 7.6 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▊      | 7.6 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▊      | 7.6 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████▉      | 7.6 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▉      | 7.6 MB 806 kB/s eta 0:00:03
+     |█████████████████████████▉      | 7.6 MB 806 kB/s eta 0:00:03
+     |██████████████████████████      | 7.7 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████      | 7.7 MB 806 kB/s eta 0:00:03
+     |██████████████████████████      | 7.7 MB 806 kB/s eta 0:00:03
+     |██████████████████████████      | 7.7 MB 806 kB/s eta 0:00:03
+     |██████████████████████████      | 7.7 MB 806 kB/s eta 0:00:03
+     |██████████████████████████      | 7.7 MB 806 kB/s eta 0:00:03
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████      | 7.7 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▏     | 7.7 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████▏     | 7.7 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████▏     | 7.8 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▎     | 7.8 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▎     | 7.8 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▎     | 7.8 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▍     | 7.8 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▍     | 7.8 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▍     | 7.8 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▌     | 7.8 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▌     | 7.8 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▌     | 7.8 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████▌     | 7.9 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▋     | 7.9 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▋     | 7.9 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▋     | 7.9 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▊     | 7.9 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████▊     | 7.9 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▊     | 7.9 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▉     | 7.9 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▉     | 7.9 MB 875 kB/s eta 0:00:02
+     |██████████████████████████▉     | 7.9 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████     | 8.0 MB 875 kB/s eta 0:00:02
+     |███████████████████████████     | 8.0 MB 875 kB/s eta 0:00:02
+     |███████████████████████████     | 8.0 MB 875 kB/s eta 0:00:02
+     |███████████████████████████     | 8.0 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████     | 8.0 MB 875 kB/s eta 0:00:02
+     |███████████████████████████     | 8.0 MB 875 kB/s eta 0:00:02
+     |███████████████████████████     | 8.0 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▏    | 8.0 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▏    | 8.0 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▏    | 8.0 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▎    | 8.1 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▎    | 8.1 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████▎    | 8.1 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▍    | 8.1 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▍    | 8.1 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▍    | 8.1 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▌    | 8.1 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████▌    | 8.1 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▌    | 8.1 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▋    | 8.2 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▋    | 8.2 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▋    | 8.2 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▋    | 8.2 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▊    | 8.2 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████▊    | 8.2 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▊    | 8.2 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▉    | 8.2 MB 875 kB/s eta 0:00:02
+     |███████████████████████████▉    | 8.2 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████▉    | 8.2 MB 875 kB/s eta 0:00:02
+     |████████████████████████████    | 8.3 MB 875 kB/s eta 0:00:02
+     |████████████████████████████    | 8.3 MB 875 kB/s eta 0:00:02
+     |████████████████████████████    | 8.3 MB 875 kB/s eta 0:00:02
+     |████████████████████████████    | 8.3 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████████    | 8.3 MB 875 kB/s eta 0:00:02
+     |████████████████████████████    | 8.3 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▏   | 8.3 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▏   | 8.3 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▏   | 8.3 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▏   | 8.3 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▎   | 8.4 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▎   | 8.4 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████████▎   | 8.4 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▍   | 8.4 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▍   | 8.4 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▍   | 8.4 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▌   | 8.4 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████████▌   | 8.4 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▌   | 8.4 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▋   | 8.4 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▋   | 8.5 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▋   | 8.5 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▊   | 8.5 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████████▊   | 8.5 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▊   | 8.5 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▊   | 8.5 MB 875 kB/s eta 0:00:02
+     |████████████████████████████▉   | 8.5 MB 875 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████████▉   | 8.5 MB 490 kB/s eta 0:00:02
+     |████████████████████████████▉   | 8.5 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████   | 8.6 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████   | 8.6 MB 490 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████████   | 8.6 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████   | 8.6 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████   | 8.6 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████   | 8.6 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▏  | 8.6 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▏  | 8.6 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▏  | 8.6 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▏  | 8.6 MB 490 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████████▎  | 8.7 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▎  | 8.7 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▎  | 8.7 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▍  | 8.7 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▍  | 8.7 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▍  | 8.7 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▌  | 8.7 MB 490 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████████▌  | 8.7 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▌  | 8.7 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▋  | 8.7 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▋  | 8.8 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▋  | 8.8 MB 490 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████████▊  | 8.8 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▊  | 8.8 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▊  | 8.8 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▊  | 8.8 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▉  | 8.8 MB 490 kB/s eta 0:00:02
+     |█████████████████████████████▉  | 8.8 MB 490 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████████████▉  | 8.8 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████  | 8.8 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████  | 8.9 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████  | 8.9 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████  | 8.9 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████  | 8.9 MB 490 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████████  | 8.9 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████▏ | 8.9 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████▏ | 8.9 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████▏ | 8.9 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████▎ | 8.9 MB 490 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████████▎ | 8.9 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████▎ | 9.0 MB 490 kB/s eta 0:00:02
+     |██████████████████████████████▎ | 9.0 MB 490 kB/s eta 0:00:02
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████████▍ | 9.0 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▍ | 9.0 MB 490 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████████▍ | 9.0 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▌ | 9.0 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▌ | 9.0 MB 490 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████████▌ | 9.0 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▋ | 9.0 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▋ | 9.1 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▋ | 9.1 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▊ | 9.1 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▊ | 9.1 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▊ | 9.1 MB 490 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████████████████████████▉ | 9.1 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▉ | 9.1 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▉ | 9.1 MB 490 kB/s eta 0:00:01
+     |██████████████████████████████▉ | 9.1 MB 490 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████████ | 9.1 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████ | 9.2 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████ | 9.2 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████ | 9.2 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████ | 9.2 MB 490 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████████ | 9.2 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▏| 9.2 MB 490 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████████▏| 9.2 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▏| 9.2 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▎| 9.2 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▎| 9.2 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▎| 9.3 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▎| 9.3 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▍| 9.3 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▍| 9.3 MB 490 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████████▍| 9.3 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▌| 9.3 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▌| 9.3 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▌| 9.3 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▋| 9.3 MB 490 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████████▋| 9.3 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▋| 9.4 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▊| 9.4 MB 490 kB/s eta 0:00:01
+     |███████████████████████████████▊| 9.4 MB 490 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |███████████████████████████████▊| 9.4 MB 863 kB/s eta 0:00:01
+     |███████████████████████████████▉| 9.4 MB 863 kB/s eta 0:00:01
+     |███████████████████████████████▉| 9.4 MB 863 kB/s eta 0:00:01
+     |███████████████████████████████▉| 9.4 MB 863 kB/s eta 0:00:01
+     |███████████████████████████████▉| 9.4 MB 863 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████████████| 9.4 MB 863 kB/s eta 0:00:01
+     |████████████████████████████████| 9.5 MB 863 kB/s eta 0:00:01
+     |████████████████████████████████| 9.5 MB 863 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |████████████████████████████████| 9.5 MB 863 kB/s 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied, skipping upgrade: numpy&gt;=1.15 in /home/jubayer/.local/lib/python3.7/site-packages (from statsmodels) (1.19.2)
+Requirement already satisfied, skipping upgrade: scipy&gt;=1.1 in /home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages (from statsmodels) (1.5.4)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Collecting patsy&gt;=0.5
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>  Downloading patsy-0.5.1-py2.py3-none-any.whl (231 kB)
+?25l
+     |█▍                              | 10 kB 1.0 MB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██▉                             | 20 kB 705 kB/s eta 0:00:01
+     |████▎                           | 30 kB 1.0 MB/s eta 0:00:01
+     |█████▊                          | 40 kB 966 kB/s eta 0:00:01
+     |███████                         | 51 kB 859 kB/s eta 0:00:01
+     |████████▌                       | 61 kB 1.0 MB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |██████████                      | 71 kB 903 kB/s eta 0:00:01
+     |███████████▍                    | 81 kB 1.0 MB/s eta 0:00:01
+     |████████████▊                   | 92 kB 1.0 MB/s eta 0:00:01
+     |██████████████▏                 | 102 kB 969 kB/s eta 0:00:01
+     |███████████████▋                | 112 kB 969 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████               | 122 kB 969 kB/s eta 0:00:01
+     |██████████████████▍             | 133 kB 969 kB/s eta 0:00:01
+     |███████████████████▉            | 143 kB 969 kB/s eta 0:00:01
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>     |█████████████████████▎          | 153 kB 969 kB/s eta 0:00:01
+     |██████████████████████▊         | 163 kB 969 kB/s eta 0:00:01
+     |████████████████████████        | 174 kB 969 kB/s eta 0:00:01
+     |█████████████████████████▌      | 184 kB 969 kB/s eta 0:00:01
+     |███████████████████████████     | 194 kB 969 kB/s eta 0:00:01
+     |████████████████████████████▍   | 204 kB 969 kB/s eta 0:00:01
+     |█████████████████████████████▊  | 215 kB 969 kB/s eta 0:00:01
+     |███████████████████████████████▏| 225 kB 969 kB/s eta 0:00:01
+     |████████████████████████████████| 231 kB 969 kB/s 
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>?25hRequirement already satisfied, skipping upgrade: pandas&gt;=0.21 in /home/jubayer/.local/lib/python3.7/site-packages (from statsmodels) (1.1.2)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Requirement already satisfied, skipping upgrade: six in /home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages (from patsy&gt;=0.5-&gt;statsmodels) (1.15.0)
+Requirement already satisfied, skipping upgrade: pytz&gt;=2017.2 in /home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages (from pandas&gt;=0.21-&gt;statsmodels) (2020.4)
+Requirement already satisfied, skipping upgrade: python-dateutil&gt;=2.7.3 in /home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages (from pandas&gt;=0.21-&gt;statsmodels) (2.8.1)
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Installing collected packages: patsy, statsmodels
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Successfully installed patsy-0.5.1 statsmodels-0.12.1
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span><span class=" -Color -Color-Yellow">WARNING: You are using pip version 20.2.3; however, version 20.3.1 is available.</span>
+<span class=" -Color -Color-Yellow">You should consider upgrading via the &#39;/home/jubayer/anaconda3/envs/dsn-template/bin/python3.7 -m pip install --upgrade pip&#39; command.</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">scipy</span> 
+<span class="kn">import</span> <span class="nn">statsmodels</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;1.5.4&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">statsmodels</span><span class="o">.</span><span class="n">__version__</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;0.12.1&#39;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">from</span> <span class="nn">statsmodels.stats.weightstats</span> <span class="kn">import</span> <span class="n">DescrStatsW</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;datasets/Salary_Data.csv&#39;</span><span class="p">)</span>
+
+<span class="n">salary_data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YearsExperience</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>5</th>
+      <td>2.3</td>
+      <td>40200.0</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>8.7</td>
+      <td>109431.0</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>4.0</td>
+      <td>56957.0</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>8.2</td>
+      <td>113812.0</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>5.9</td>
+      <td>81363.0</td>
+    </tr>
+    <tr>
+      <th>6</th>
+      <td>2.3</td>
+      <td>39000.0</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>3.7</td>
+      <td>57189.0</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>9.0</td>
+      <td>105582.0</td>
+    </tr>
+    <tr>
+      <th>0</th>
+      <td>1.1</td>
+      <td>39343.0</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>3.2</td>
+      <td>64445.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(37, 2)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_data</span><span class="o">.</span><span class="n">isnull</span><span class="p">()</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>YearsExperience    0
+Salary             0
+dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;YearsExperience&#39;</span><span class="p">])</span>
+
+<span class="n">min_exp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1.1
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;YearsExperience&#39;</span><span class="p">])</span>
+
+<span class="n">max_exp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>10.5
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">min_salary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">min_salary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>37731.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">max_salary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">max_salary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>122391.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_of_exp</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ptp</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;YearsExperience&#39;</span><span class="p">])</span>
+
+<span class="n">range_of_exp</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>9.4
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">range_of_salary</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">ptp</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">range_of_salary</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>84660.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary</span> <span class="o">=</span> <span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">]</span>
+
+<span class="n">salary</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    39343.0
+1    46205.0
+2    37731.0
+3    43525.0
+4    39891.0
+5    40200.0
+6    39000.0
+7    56642.0
+8    60150.0
+9    60150.0
+Name: Salary, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">sorted_salary</span> <span class="o">=</span> <span class="n">salary</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">sorted_salary</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>0    37731.0
+1    39000.0
+2    39343.0
+3    39891.0
+4    40200.0
+5    43525.0
+6    46205.0
+7    54445.0
+8    55794.0
+9    56642.0
+Name: Salary, dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_mean</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">salary_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/.local/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: scipy.mean is deprecated and will be removed in SciPy 2.0.0, use numpy.mean instead
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74117.4054054054
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp_stats</span> <span class="o">=</span> <span class="n">DescrStatsW</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;YearsExperience&#39;</span><span class="p">])</span>
+
+<span class="n">exp_stats</span><span class="o">.</span><span class="n">mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>5.1189189189189195
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_median</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">sorted_salary</span><span class="p">)</span>
+
+<span class="n">salary_median</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/.local/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: scipy.median is deprecated and will be removed in SciPy 2.0.0, use numpy.median instead
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>63218.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_median</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">salary_median</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/.local/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: scipy.median is deprecated and will be removed in SciPy 2.0.0, use numpy.median instead
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>63218.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">exp_stats</span><span class="o">.</span><span class="n">quantile</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>p
+0.5    4.1
+dtype: float64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/distributions.py:2551: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;Salary&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_22_2.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_22_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;YearsExperience&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/distributions.py:2551: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;YearsExperience&#39;, ylabel=&#39;Density&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_23_2.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_23_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/distributions.py:2551: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f61ecf48350&gt;
+</pre></div>
+</div>
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_24_2.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_24_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;YearsExperience&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Salary&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">salary_data</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">salary_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">salary_median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_25_0.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_25_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">listOfSeries</span> <span class="o">=</span> <span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">20</span><span class="p">,</span> <span class="mi">250000</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">salary_data</span><span class="o">.</span><span class="n">columns</span> <span class="p">),</span> 
+                <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">25</span><span class="p">,</span> <span class="mi">270000</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">salary_data</span><span class="o">.</span><span class="n">columns</span> <span class="p">),</span> 
+                <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">([</span><span class="mi">30</span><span class="p">,</span> <span class="mi">320000</span><span class="p">],</span> <span class="n">index</span><span class="o">=</span><span class="n">salary_data</span><span class="o">.</span><span class="n">columns</span> <span class="p">)]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_updated</span> <span class="o">=</span> <span class="n">salary_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">listOfSeries</span> <span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">salary_updated</span><span class="o">.</span><span class="n">tail</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>YearsExperience</th>
+      <th>Salary</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>35</th>
+      <td>10.3</td>
+      <td>122391.0</td>
+    </tr>
+    <tr>
+      <th>36</th>
+      <td>10.5</td>
+      <td>121872.0</td>
+    </tr>
+    <tr>
+      <th>37</th>
+      <td>20.0</td>
+      <td>250000.0</td>
+    </tr>
+    <tr>
+      <th>38</th>
+      <td>25.0</td>
+      <td>270000.0</td>
+    </tr>
+    <tr>
+      <th>39</th>
+      <td>30.0</td>
+      <td>320000.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_updated_mean</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">salary_updated</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">salary_updated_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/.local/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: scipy.mean is deprecated and will be removed in SciPy 2.0.0, use numpy.mean instead
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>89558.6
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_mean</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>74117.4054054054
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_updated_median</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">median</span><span class="p">(</span><span class="n">salary_updated</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">salary_updated_median</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/.local/lib/python3.7/site-packages/ipykernel_launcher.py:1: DeprecationWarning: scipy.median is deprecated and will be removed in SciPy 2.0.0, use numpy.median instead
+  &quot;&quot;&quot;Entry point for launching an IPython kernel.
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>65237.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">salary_median</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>63218.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">salary_updated</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_updated_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_updated_median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/distributions.py:2551: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f61eca9d910&gt;
+</pre></div>
+</div>
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_32_2.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_32_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">],</span> <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">},</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">salary_updated</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">],</span> <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.8</span><span class="p">},</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_updated_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/distributions.py:2551: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/distributions.py:2551: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f61ec9cd950&gt;
+</pre></div>
+</div>
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_33_2.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_33_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">],</span> <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.2</span><span class="p">},</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">)</span>
+<span class="n">sns</span><span class="o">.</span><span class="n">distplot</span><span class="p">(</span><span class="n">salary_updated</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">],</span> <span class="n">hist_kws</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;alpha&#39;</span><span class="p">:</span><span class="mf">0.8</span><span class="p">},</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;grey&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">salary_updated_median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;green&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/distributions.py:2551: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/distributions.py:2551: FutureWarning: `distplot` is a deprecated function and will be removed in a future version. Please adapt your code to use either `displot` (a figure-level function with similar flexibility) or `histplot` (an axes-level function for histograms).
+  warnings.warn(msg, FutureWarning)
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.legend.Legend at 0x7f61ece62e90&gt;
+</pre></div>
+</div>
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_34_2.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_34_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;YearsExperience&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;Salary&#39;</span><span class="p">,</span> <span class="n">data</span><span class="o">=</span><span class="n">salary_updated</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">salary_updated_mean</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;mean&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">salary_updated_median</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;b&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;median&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_35_0.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_35_0.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;YearsExperience&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModeResult(mode=array([3.]), count=array([4]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">mode</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>ModeResult(mode=array([60150.]), count=array([4]))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;YearsExperience&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/_decorators.py:43: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  FutureWarning
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;AxesSubplot:xlabel=&#39;YearsExperience&#39;, ylabel=&#39;count&#39;&gt;
+</pre></div>
+</div>
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_38_2.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_38_2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+
+<span class="n">sns</span><span class="o">.</span><span class="n">countplot</span><span class="p">(</span><span class="n">salary_data</span><span class="p">[</span><span class="s1">&#39;Salary&#39;</span><span class="p">])</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">xticks</span><span class="p">(</span><span class="n">rotation</span><span class="o">=</span><span class="mi">90</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/home/jubayer/anaconda3/envs/dsn-template/lib/python3.7/site-packages/seaborn/_decorators.py:43: FutureWarning: Pass the following variable as a keyword arg: x. From version 0.12, the only valid positional argument will be `data`, and passing other arguments without an explicit keyword will result in an error or misinterpretation.
+  FutureWarning
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(array([ 0,  1,  2,  3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16,
+        17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31]),
+ [Text(0, 0, &#39;37731.0&#39;),
+  Text(1, 0, &#39;39000.0&#39;),
+  Text(2, 0, &#39;39343.0&#39;),
+  Text(3, 0, &#39;39891.0&#39;),
+  Text(4, 0, &#39;40200.0&#39;),
+  Text(5, 0, &#39;43525.0&#39;),
+  Text(6, 0, &#39;46205.0&#39;),
+  Text(7, 0, &#39;54445.0&#39;),
+  Text(8, 0, &#39;55794.0&#39;),
+  Text(9, 0, &#39;56642.0&#39;),
+  Text(10, 0, &#39;56957.0&#39;),
+  Text(11, 0, &#39;57081.0&#39;),
+  Text(12, 0, &#39;57189.0&#39;),
+  Text(13, 0, &#39;60150.0&#39;),
+  Text(14, 0, &#39;61111.0&#39;),
+  Text(15, 0, &#39;63218.0&#39;),
+  Text(16, 0, &#39;64445.0&#39;),
+  Text(17, 0, &#39;66029.0&#39;),
+  Text(18, 0, &#39;67938.0&#39;),
+  Text(19, 0, &#39;81363.0&#39;),
+  Text(20, 0, &#39;83088.0&#39;),
+  Text(21, 0, &#39;91738.0&#39;),
+  Text(22, 0, &#39;93940.0&#39;),
+  Text(23, 0, &#39;98273.0&#39;),
+  Text(24, 0, &#39;101302.0&#39;),
+  Text(25, 0, &#39;105582.0&#39;),
+  Text(26, 0, &#39;109431.0&#39;),
+  Text(27, 0, &#39;112635.0&#39;),
+  Text(28, 0, &#39;113812.0&#39;),
+  Text(29, 0, &#39;116969.0&#39;),
+  Text(30, 0, &#39;121872.0&#39;),
+  Text(31, 0, &#39;122391.0&#39;)])
+</pre></div>
+</div>
+<img alt="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_39_2.png" src="../_images/m4-demo-01-DescriptiveStatisticsForCentralTendencyUsingScipyStatsmodels_39_2.png" />
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "hossainlab/statsandpy",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./descriptive"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jubayer Hossain<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
