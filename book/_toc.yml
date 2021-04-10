@@ -1,0 +1,5 @@
+- file: index
+
+- part: Introduction to Statistics
+  chapters:
+  - file: notebooks/01-Introduction-to-Statistics

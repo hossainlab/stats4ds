@@ -1,0 +1,761 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>The hypothesis being tested &#8212; Statistics Using Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/stats.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/stats.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Statistics Using Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/inferential/demo02_PairedDifferenceT-Test.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/hossainlab/statsandpy/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/hossainlab/statsandpy/master?urlpath=tree/book/inferential/demo02_PairedDifferenceT-Test.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/hossainlab/statsandpy/blob/master/book/inferential/demo02_PairedDifferenceT-Test.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   The hypothesis being tested
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#assumption-check">
+   Assumption check
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-normal-distribution-by-q-q-plot-graph">
+     Checking Normal distribution by Q-Q plot graph
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#checking-normal-distribution-by-method-of-shapiro-stats">
+     Checking Normal distribution by method of
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       Shapiro
+      </span>
+      <span class="pre">
+       stats
+      </span>
+     </code>
+    </a>
+   </li>
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#t-test-using-researchpy">
+     T-test using
+     <code class="docutils literal notranslate">
+      <span class="pre">
+       researchpy
+      </span>
+     </code>
+    </a>
+   </li>
+  </ul>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">scale</span>
+
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+<span class="kn">import</span> <span class="nn">researchpy</span> <span class="k">as</span> <span class="nn">rp</span>
+</pre></div>
+</div>
+</div>
+</div>
+<p>https://github.com/Opensourcefordatascience/Data-sets/blob/master/blood_pressure.csv</p>
+<p>In this dataset fictitious and contains blood pressure readings before and after an intervention. These are variables “bp_before” and “bp_after”.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bp_reading</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;datasets/blood_pressure.csv&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bp_reading</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>patient</th>
+      <th>sex</th>
+      <th>agegrp</th>
+      <th>bp_before</th>
+      <th>bp_after</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>39</td>
+      <td>40</td>
+      <td>Male</td>
+      <td>46-59</td>
+      <td>160</td>
+      <td>174</td>
+    </tr>
+    <tr>
+      <td>71</td>
+      <td>72</td>
+      <td>Female</td>
+      <td>30-45</td>
+      <td>157</td>
+      <td>135</td>
+    </tr>
+    <tr>
+      <td>70</td>
+      <td>71</td>
+      <td>Female</td>
+      <td>30-45</td>
+      <td>162</td>
+      <td>133</td>
+    </tr>
+    <tr>
+      <td>33</td>
+      <td>34</td>
+      <td>Male</td>
+      <td>46-59</td>
+      <td>148</td>
+      <td>184</td>
+    </tr>
+    <tr>
+      <td>72</td>
+      <td>73</td>
+      <td>Female</td>
+      <td>30-45</td>
+      <td>141</td>
+      <td>168</td>
+    </tr>
+    <tr>
+      <td>69</td>
+      <td>70</td>
+      <td>Female</td>
+      <td>30-45</td>
+      <td>138</td>
+      <td>135</td>
+    </tr>
+    <tr>
+      <td>81</td>
+      <td>82</td>
+      <td>Female</td>
+      <td>46-59</td>
+      <td>170</td>
+      <td>150</td>
+    </tr>
+    <tr>
+      <td>82</td>
+      <td>83</td>
+      <td>Female</td>
+      <td>46-59</td>
+      <td>150</td>
+      <td>138</td>
+    </tr>
+    <tr>
+      <td>10</td>
+      <td>11</td>
+      <td>Male</td>
+      <td>30-45</td>
+      <td>149</td>
+      <td>164</td>
+    </tr>
+    <tr>
+      <td>119</td>
+      <td>120</td>
+      <td>Female</td>
+      <td>60+</td>
+      <td>185</td>
+      <td>163</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bp_reading</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(120, 5)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bp_reading</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>patient</td>
+      <td>120.0</td>
+      <td>60.500000</td>
+      <td>34.785054</td>
+      <td>1.0</td>
+      <td>30.75</td>
+      <td>60.5</td>
+      <td>90.25</td>
+      <td>120.0</td>
+    </tr>
+    <tr>
+      <td>bp_before</td>
+      <td>120.0</td>
+      <td>156.450000</td>
+      <td>11.389845</td>
+      <td>138.0</td>
+      <td>147.00</td>
+      <td>154.5</td>
+      <td>164.00</td>
+      <td>185.0</td>
+    </tr>
+    <tr>
+      <td>bp_after</td>
+      <td>120.0</td>
+      <td>151.358333</td>
+      <td>14.177622</td>
+      <td>125.0</td>
+      <td>140.75</td>
+      <td>149.5</td>
+      <td>161.00</td>
+      <td>185.0</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bp_reading</span><span class="p">[[</span><span class="s1">&#39;bp_before&#39;</span><span class="p">,</span> <span class="s1">&#39;bp_after&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x107b51690&gt;
+</pre></div>
+</div>
+<img alt="../_images/demo02_PairedDifferenceT-Test_6_1.png" src="../_images/demo02_PairedDifferenceT-Test_6_1.png" />
+</div>
+</div>
+<div class="section" id="the-hypothesis-being-tested">
+<h1>The hypothesis being tested<a class="headerlink" href="#the-hypothesis-being-tested" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p><strong>Null hypothesis (H0): u1 = u2, which translates to the mean of sample 01 is equal to the mean of sample 02</strong></p></li>
+<li><p><strong>Alternative hypothesis (H1): u1 ? u2, which translates to the means of sample 01 is not equal to sample 02</strong></p></li>
+</ul>
+</div>
+<div class="section" id="assumption-check">
+<h1>Assumption check<a class="headerlink" href="#assumption-check" title="Permalink to this headline">¶</a></h1>
+<ul class="simple">
+<li><p>The samples are independently and randomly drawn</p></li>
+<li><p>The distribution of the residuals between the two groups should follow the normal distribution</p></li>
+<li><p>The variances between the two groups are equal</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">levene</span><span class="p">(</span><span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_after&#39;</span><span class="p">],</span> <span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_before&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LeveneResult(statistic=4.863729003161597, pvalue=0.028383666362347747)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_diff&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">scale</span><span class="p">(</span><span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_after&#39;</span><span class="p">]</span> <span class="o">-</span> <span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_before&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>/anaconda3/lib/python3.7/site-packages/sklearn/utils/validation.py:595: DataConversionWarning: Data with input dtype int64 was converted to float64 by the scale function.
+  warnings.warn(msg, DataConversionWarning)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bp_reading</span><span class="p">[[</span><span class="s1">&#39;bp_diff&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>bp_diff</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.906743</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.726496</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>1.207155</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>-0.354987</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.005508</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">bp_reading</span><span class="p">[[</span><span class="s1">&#39;bp_diff&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">12</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([[&lt;matplotlib.axes._subplots.AxesSubplot object at 0x1a1ab7f210&gt;]],
+      dtype=object)
+</pre></div>
+</div>
+<img alt="../_images/demo02_PairedDifferenceT-Test_13_1.png" src="../_images/demo02_PairedDifferenceT-Test_13_1.png" />
+</div>
+</div>
+<div class="section" id="checking-normal-distribution-by-q-q-plot-graph">
+<h2>Checking Normal distribution by Q-Q plot graph<a class="headerlink" href="#checking-normal-distribution-by-q-q-plot-graph" title="Permalink to this headline">¶</a></h2>
+<p>https://www.statisticshowto.datasciencecentral.com/assumption-of-normality-test/</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+<span class="n">stats</span><span class="o">.</span><span class="n">probplot</span><span class="p">(</span><span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_diff&#39;</span><span class="p">],</span> <span class="n">plot</span><span class="o">=</span><span class="n">plt</span><span class="p">)</span>
+
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s1">&#39;Blood pressure difference Q-Q plot&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/demo02_PairedDifferenceT-Test_15_0.png" src="../_images/demo02_PairedDifferenceT-Test_15_0.png" />
+</div>
+</div>
+<p><strong>Note:-</strong> The corresponding points are lies very close to line that means are our sample data sets are normally distributed</p>
+</div>
+<div class="section" id="checking-normal-distribution-by-method-of-shapiro-stats">
+<h2>Checking Normal distribution by method of <code class="docutils literal notranslate"><span class="pre">Shapiro</span> <span class="pre">stats</span></code><a class="headerlink" href="#checking-normal-distribution-by-method-of-shapiro-stats" title="Permalink to this headline">¶</a></h2>
+<p>https://docs.scipy.org/doc/scipy/reference/generated/scipy.stats.shapiro.html</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">shapiro</span><span class="p">(</span><span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_diff&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(0.9926842451095581, 0.7841846942901611)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">stats</span><span class="o">.</span><span class="n">ttest_rel</span><span class="p">(</span><span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_after&#39;</span><span class="p">],</span> <span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_before&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ttest_relResult(statistic=-3.3371870510833657, pvalue=0.0011297914644840823)
+</pre></div>
+</div>
+</div>
+</div>
+<p><strong>Note:-</strong> <strong>Here, <code class="docutils literal notranslate"><span class="pre">t-test</span> <span class="pre">=</span> <span class="pre">-3.337</span></code> and <code class="docutils literal notranslate"><span class="pre">p-value</span> <span class="pre">=</span> <span class="pre">0.0011</span></code> since p-value is less than the significant value hence null-hypothesis is rejected<code class="docutils literal notranslate"><span class="pre">(Alpha</span> <span class="pre">=</span> <span class="pre">0.05)</span></code></strong></p>
+</div>
+<div class="section" id="t-test-using-researchpy">
+<h2>T-test using <code class="docutils literal notranslate"><span class="pre">researchpy</span></code><a class="headerlink" href="#t-test-using-researchpy" title="Permalink to this headline">¶</a></h2>
+<p>https://researchpy.readthedocs.io/en/latest/ttest_documentation.html</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">rp</span><span class="o">.</span><span class="n">ttest</span><span class="p">(</span><span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_after&#39;</span><span class="p">],</span> <span class="n">bp_reading</span><span class="p">[</span><span class="s1">&#39;bp_before&#39;</span><span class="p">],</span> 
+         <span class="n">paired</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">equal_variances</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Wilcoxon signed-rank test</th>
+      <th>results</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>Mean for bp_after =</td>
+      <td>151.358333</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>Mean for bp_before =</td>
+      <td>156.450000</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>T value =</td>
+      <td>2234.500000</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>Z value =</td>
+      <td>-3.191600</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>Two sided p value =</td>
+      <td>0.001400</td>
+    </tr>
+    <tr>
+      <td>5</td>
+      <td>r =</td>
+      <td>-0.206000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "hossainlab/statsandpy",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./inferential"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jubayer Hossain<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>

@@ -1,0 +1,1336 @@
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="utf-8" />
+    <title>Gender voice dataset &#8212; Statistics Using Python</title>
+    
+  <link rel="stylesheet" href="../_static/css/index.73d71520a4ca3b99cfee5594769eaaae.css">
+
+    
+  <link rel="stylesheet"
+    href="../_static/vendor/fontawesome/5.13.0/css/all.min.css">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-solid-900.woff2">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+    href="../_static/vendor/fontawesome/5.13.0/webfonts/fa-brands-400.woff2">
+
+    
+      
+  <link rel="stylesheet"
+    href="../_static/vendor/open-sans_all/1.44.1/index.css">
+  <link rel="stylesheet"
+    href="../_static/vendor/lato_latin-ext/1.44.1/index.css">
+
+    
+    <link rel="stylesheet" href="../_static/sphinx-book-theme.40e2e510f6b7d1648584402491bb10fe.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="stylesheet" type="text/css" href="../_static/togglebutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/mystnb.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sphinx-thebe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-main.c949a650a448cc0ae9fd3441c0e17fb0.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/panels-variables.06eb56fa6e07937060861dad626602ad.css" />
+    
+  <link rel="preload" as="script" href="../_static/js/index.3da636dd464baa7582d2.js">
+
+    <script id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/language_data.js"></script>
+    <script src="../_static/togglebutton.js"></script>
+    <script src="../_static/clipboard.min.js"></script>
+    <script src="../_static/copybutton.js"></script>
+    <script >var togglebuttonSelector = '.toggle, .admonition.dropdown, .tag_hide_input div.cell_input, .tag_hide-input div.cell_input, .tag_hide_output div.cell_output, .tag_hide-output div.cell_output, .tag_hide_cell.cell, .tag_hide-cell.cell';</script>
+    <script src="../_static/sphinx-book-theme.d31b09fe5c1d09cb49b26a786de4a05d.js"></script>
+    <script async="async" src="https://unpkg.com/thebelab@latest/lib/index.js"></script>
+    <script >
+        const thebe_selector = ".thebe,.cell"
+        const thebe_selector_input = "pre,.cell_input div.highlight"
+        const thebe_selector_output = ".output,.cell_output"
+    </script>
+    <script async="async" src="../_static/sphinx-thebe.js"></script>
+    <link rel="shortcut icon" href="../_static/stats.png"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="docsearch:language" content="en" />
+
+
+
+  </head>
+  <body data-spy="scroll" data-target="#bd-toc-nav" data-offset="80">
+    
+
+    <div class="container-xl">
+      <div class="row">
+          
+<div class="col-12 col-md-3 bd-sidebar site-navigation show" id="site-navigation">
+    
+        <div class="navbar-brand-box">
+<a class="navbar-brand text-wrap" href="../index.html">
+  
+  <img src="../_static/stats.png" class="logo" alt="logo">
+  
+  
+  <h1 class="site-logo" id="site-title">Statistics Using Python</h1>
+  
+</a>
+</div><form class="bd-search d-flex align-items-center" action="../search.html" method="get">
+  <i class="icon fas fa-search"></i>
+  <input type="search" class="form-control" name="q" id="search-input" placeholder="Search this book..." aria-label="Search this book..." autocomplete="off" >
+</form>
+<nav class="bd-links" id="bd-docs-nav" aria-label="Main navigation">
+    
+</nav> <!-- To handle the deprecated key -->
+
+<div class="navbar_extra_footer">
+  Powered by <a href="https://jupyterbook.org">Jupyter Book</a>
+</div>
+
+</div>
+
+
+          
+
+
+          
+<main class="col py-md-3 pl-md-4 bd-content overflow-auto" role="main">
+    
+    <div class="row topbar fixed-top container-xl">
+    <div class="col-12 col-md-3 bd-topbar-whitespace site-navigation show">
+    </div>
+    <div class="col pl-2 topbar-main">
+        
+        <button id="navbar-toggler" class="navbar-toggler ml-0" type="button" data-toggle="collapse"
+            data-toggle="tooltip" data-placement="bottom" data-target=".site-navigation" aria-controls="navbar-menu"
+            aria-expanded="true" aria-label="Toggle navigation" aria-controls="site-navigation"
+            title="Toggle navigation" data-toggle="tooltip" data-placement="left">
+            <i class="fas fa-bars"></i>
+            <i class="fas fa-arrow-left"></i>
+            <i class="fas fa-arrow-up"></i>
+        </button>
+        
+        
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn" aria-label="Download this page"><i
+            class="fas fa-download"></i></button>
+
+    <div class="dropdown-buttons">
+        <!-- ipynb file if we had a myst markdown file -->
+        
+        <!-- Download raw file -->
+        <a class="dropdown-buttons" href="../_sources/inferential/demo08_LogisticRegression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Download source file" data-toggle="tooltip"
+                data-placement="left">.ipynb</button></a>
+        <!-- Download PDF via print -->
+        <button type="button" id="download-print" class="btn btn-secondary topbarbtn" title="Print to PDF"
+            onClick="window.print()" data-toggle="tooltip" data-placement="left">.pdf</button>
+    </div>
+</div>
+
+        <!-- Source interaction buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Connect with source repository"><i class="fab fa-github"></i></button>
+    <div class="dropdown-buttons sourcebuttons">
+        <a class="repository-button"
+            href="https://github.com/hossainlab/statsandpy/"><button type="button" class="btn btn-secondary topbarbtn"
+                data-toggle="tooltip" data-placement="left" title="Source repository"><i
+                    class="fab fa-github"></i>repository</button></a>
+        
+        
+    </div>
+</div>
+
+
+        <!-- Full screen (wrap in <a> to have style consistency -->
+        <a class="full-screen-button"><button type="button" class="btn btn-secondary topbarbtn" data-toggle="tooltip"
+                data-placement="bottom" onclick="toggleFullScreen()" aria-label="Fullscreen mode"
+                title="Fullscreen mode"><i
+                    class="fas fa-expand"></i></button></a>
+
+        <!-- Launch buttons -->
+
+<div class="dropdown-buttons-trigger">
+    <button id="dropdown-buttons-trigger" class="btn btn-secondary topbarbtn"
+        aria-label="Launch interactive content"><i class="fas fa-rocket"></i></button>
+    <div class="dropdown-buttons">
+        
+        <a class="binder-button" href="https://mybinder.org/v2/gh/hossainlab/statsandpy/master?urlpath=tree/book/inferential/demo08_LogisticRegression.ipynb"><button type="button"
+                class="btn btn-secondary topbarbtn" title="Launch Binder" data-toggle="tooltip"
+                data-placement="left"><img class="binder-button-logo"
+                    src="../_static/images/logo_binder.svg"
+                    alt="Interact on binder">Binder</button></a>
+        
+        
+        
+        <a class="colab-button" href="https://colab.research.google.com/github/hossainlab/statsandpy/blob/master/book/inferential/demo08_LogisticRegression.ipynb"><button type="button" class="btn btn-secondary topbarbtn"
+                title="Launch Colab" data-toggle="tooltip" data-placement="left"><img class="colab-button-logo"
+                    src="../_static/images/logo_colab.png"
+                    alt="Interact on Colab">Colab</button></a>
+        
+        <button type="button" class="btn btn-secondary topbarbtn"
+            onclick="initThebeSBT()" title="Launch Thebe" data-toggle="tooltip" data-placement="left"><i
+                class="fas fa-play"></i><span style="margin-left: .4em;">Live Code</span></button>
+        
+    </div>
+</div>
+
+    </div>
+
+    <!-- Table of contents -->
+    <div class="d-none d-md-block col-md-2 bd-toc show">
+        
+        <div class="tocsection onthispage pt-5 pb-3">
+            <i class="fas fa-list"></i> Contents
+        </div>
+        <nav id="bd-toc-nav">
+            <ul class="nav section-nav flex-column">
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#">
+   Gender voice dataset
+  </a>
+  <ul class="nav section-nav flex-column">
+   <li class="toc-h2 nav-item toc-entry">
+    <a class="reference internal nav-link" href="#source-https-www-mldata-io-dataset-details-gender-voice">
+     Source : https://www.mldata.io/dataset-details/gender_voice/
+    </a>
+   </li>
+  </ul>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#describing-values">
+   Describing values
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#label-encoding">
+   Label encoding
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#spilting-the-data-into-train-and-test-data">
+   Spilting the data into train and test data
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#logistic-regression-classifier">
+   Logistic Regression Classifier
+  </a>
+ </li>
+ <li class="toc-h1 nav-item toc-entry">
+  <a class="reference internal nav-link" href="#accuracy-precision-recall-scores">
+   Accuracy, precision, recall scores
+  </a>
+ </li>
+</ul>
+
+        </nav>
+        
+    </div>
+</div>
+    <div id="main-content" class="row">
+        <div class="col-12 col-md-9 pl-md-3 pr-md-0">
+        
+              <div>
+                
+  <div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="gender-voice-dataset">
+<h1>Gender voice dataset<a class="headerlink" href="#gender-voice-dataset" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="source-https-www-mldata-io-dataset-details-gender-voice">
+<h2>Source : https://www.mldata.io/dataset-details/gender_voice/<a class="headerlink" href="#source-https-www-mldata-io-dataset-details-gender-voice" title="Permalink to this headline">¶</a></h2>
+<p>meanfreq	-	mean frequency (in kHz)</p>
+<p>sd	        -	standard deviation of frequency</p>
+<p>median   	- median frequency (in kHz)</p>
+<p>IQR	        -	interquantile range (in kHz)</p>
+<p>sp.ent	    -	spectral entropy</p>
+<p>centroid	-	frequency centroid (see specprop)</p>
+<p>minfun	    -	minimum fundamental frequency measured across acoustic signal</p>
+<p>label	    -	Predictor class, male or female</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s1">&#39;datasets/gender_voice_dataset.csv&#39;</span><span class="p">)</span>
+
+<span class="n">data</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>meanfreq</th>
+      <th>sd</th>
+      <th>median</th>
+      <th>Q25</th>
+      <th>Q75</th>
+      <th>IQR</th>
+      <th>skew</th>
+      <th>kurt</th>
+      <th>sp.ent</th>
+      <th>sfm</th>
+      <th>...</th>
+      <th>centroid</th>
+      <th>meanfun</th>
+      <th>minfun</th>
+      <th>maxfun</th>
+      <th>meandom</th>
+      <th>mindom</th>
+      <th>maxdom</th>
+      <th>dfrange</th>
+      <th>modindx</th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>291</td>
+      <td>0.048254</td>
+      <td>0.070167</td>
+      <td>0.015790</td>
+      <td>0.008229</td>
+      <td>0.058268</td>
+      <td>0.050040</td>
+      <td>3.289199</td>
+      <td>12.906251</td>
+      <td>0.830441</td>
+      <td>0.300592</td>
+      <td>...</td>
+      <td>0.048254</td>
+      <td>0.100127</td>
+      <td>0.016719</td>
+      <td>0.275862</td>
+      <td>0.183364</td>
+      <td>0.007812</td>
+      <td>4.882812</td>
+      <td>4.875000</td>
+      <td>0.069912</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>1190</td>
+      <td>0.207960</td>
+      <td>0.061353</td>
+      <td>0.238038</td>
+      <td>0.140381</td>
+      <td>0.266267</td>
+      <td>0.125886</td>
+      <td>2.571208</td>
+      <td>10.683324</td>
+      <td>0.868951</td>
+      <td>0.274106</td>
+      <td>...</td>
+      <td>0.207960</td>
+      <td>0.122592</td>
+      <td>0.046967</td>
+      <td>0.268156</td>
+      <td>1.792221</td>
+      <td>0.023438</td>
+      <td>6.421875</td>
+      <td>6.398438</td>
+      <td>0.161921</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>2810</td>
+      <td>0.231343</td>
+      <td>0.029296</td>
+      <td>0.227883</td>
+      <td>0.218175</td>
+      <td>0.245766</td>
+      <td>0.027591</td>
+      <td>2.644273</td>
+      <td>9.934500</td>
+      <td>0.789733</td>
+      <td>0.117383</td>
+      <td>...</td>
+      <td>0.231343</td>
+      <td>0.199985</td>
+      <td>0.047431</td>
+      <td>0.279070</td>
+      <td>1.775082</td>
+      <td>0.234375</td>
+      <td>19.453125</td>
+      <td>19.218750</td>
+      <td>0.104709</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <td>1534</td>
+      <td>0.157928</td>
+      <td>0.059404</td>
+      <td>0.133126</td>
+      <td>0.108241</td>
+      <td>0.217700</td>
+      <td>0.109459</td>
+      <td>2.850184</td>
+      <td>13.123892</td>
+      <td>0.901424</td>
+      <td>0.390069</td>
+      <td>...</td>
+      <td>0.157928</td>
+      <td>0.108966</td>
+      <td>0.049505</td>
+      <td>0.161290</td>
+      <td>0.518852</td>
+      <td>0.083008</td>
+      <td>0.791016</td>
+      <td>0.708008</td>
+      <td>0.626369</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>327</td>
+      <td>0.154345</td>
+      <td>0.061858</td>
+      <td>0.158243</td>
+      <td>0.100908</td>
+      <td>0.205361</td>
+      <td>0.104453</td>
+      <td>2.791509</td>
+      <td>13.058492</td>
+      <td>0.920559</td>
+      <td>0.524902</td>
+      <td>...</td>
+      <td>0.154345</td>
+      <td>0.100617</td>
+      <td>0.049751</td>
+      <td>0.277778</td>
+      <td>0.735763</td>
+      <td>0.107422</td>
+      <td>3.569336</td>
+      <td>3.461914</td>
+      <td>0.269394</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>2473</td>
+      <td>0.198333</td>
+      <td>0.057894</td>
+      <td>0.213907</td>
+      <td>0.197953</td>
+      <td>0.232465</td>
+      <td>0.034512</td>
+      <td>2.624526</td>
+      <td>9.595826</td>
+      <td>0.876050</td>
+      <td>0.400094</td>
+      <td>...</td>
+      <td>0.198333</td>
+      <td>0.175645</td>
+      <td>0.048000</td>
+      <td>0.277457</td>
+      <td>1.379788</td>
+      <td>0.023438</td>
+      <td>6.351562</td>
+      <td>6.328125</td>
+      <td>0.089719</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <td>2560</td>
+      <td>0.218046</td>
+      <td>0.044257</td>
+      <td>0.220260</td>
+      <td>0.180260</td>
+      <td>0.260779</td>
+      <td>0.080519</td>
+      <td>1.886142</td>
+      <td>6.762014</td>
+      <td>0.867115</td>
+      <td>0.202030</td>
+      <td>...</td>
+      <td>0.218046</td>
+      <td>0.180807</td>
+      <td>0.047105</td>
+      <td>0.275862</td>
+      <td>1.065848</td>
+      <td>0.187500</td>
+      <td>7.804688</td>
+      <td>7.617188</td>
+      <td>0.116923</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <td>1449</td>
+      <td>0.179108</td>
+      <td>0.061642</td>
+      <td>0.176245</td>
+      <td>0.142920</td>
+      <td>0.238773</td>
+      <td>0.095853</td>
+      <td>1.851029</td>
+      <td>7.034257</td>
+      <td>0.920308</td>
+      <td>0.431603</td>
+      <td>...</td>
+      <td>0.179108</td>
+      <td>0.122968</td>
+      <td>0.050000</td>
+      <td>0.277457</td>
+      <td>1.080469</td>
+      <td>0.023438</td>
+      <td>4.382812</td>
+      <td>4.359375</td>
+      <td>0.192368</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>772</td>
+      <td>0.163002</td>
+      <td>0.058707</td>
+      <td>0.173992</td>
+      <td>0.103128</td>
+      <td>0.205679</td>
+      <td>0.102551</td>
+      <td>1.550271</td>
+      <td>5.280638</td>
+      <td>0.930426</td>
+      <td>0.481643</td>
+      <td>...</td>
+      <td>0.163002</td>
+      <td>0.108706</td>
+      <td>0.020177</td>
+      <td>0.246154</td>
+      <td>0.655625</td>
+      <td>0.093750</td>
+      <td>4.906250</td>
+      <td>4.812500</td>
+      <td>0.210836</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>109</td>
+      <td>0.179029</td>
+      <td>0.065368</td>
+      <td>0.164454</td>
+      <td>0.126415</td>
+      <td>0.247681</td>
+      <td>0.121267</td>
+      <td>2.141880</td>
+      <td>8.493103</td>
+      <td>0.912945</td>
+      <td>0.436573</td>
+      <td>...</td>
+      <td>0.179029</td>
+      <td>0.125993</td>
+      <td>0.026667</td>
+      <td>0.181818</td>
+      <td>0.440104</td>
+      <td>0.070312</td>
+      <td>5.843750</td>
+      <td>5.773438</td>
+      <td>0.110352</td>
+      <td>male</td>
+    </tr>
+  </tbody>
+</table>
+<p>10 rows × 21 columns</p>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="p">[[</span><span class="s1">&#39;label&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>label</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>2600</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <td>2380</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <td>611</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>2234</td>
+      <td>female</td>
+    </tr>
+    <tr>
+      <td>1322</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>754</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>248</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>1533</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>520</td>
+      <td>male</td>
+    </tr>
+    <tr>
+      <td>1652</td>
+      <td>female</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>(3168, 21)
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="describing-values">
+<h1>Describing values<a class="headerlink" href="#describing-values" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span><span class="o">.</span><span class="n">T</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>count</th>
+      <th>mean</th>
+      <th>std</th>
+      <th>min</th>
+      <th>25%</th>
+      <th>50%</th>
+      <th>75%</th>
+      <th>max</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>meanfreq</td>
+      <td>3168.0</td>
+      <td>0.180907</td>
+      <td>0.029918</td>
+      <td>0.039363</td>
+      <td>0.163662</td>
+      <td>0.184838</td>
+      <td>0.199146</td>
+      <td>0.251124</td>
+    </tr>
+    <tr>
+      <td>sd</td>
+      <td>3168.0</td>
+      <td>0.057126</td>
+      <td>0.016652</td>
+      <td>0.018363</td>
+      <td>0.041954</td>
+      <td>0.059155</td>
+      <td>0.067020</td>
+      <td>0.115273</td>
+    </tr>
+    <tr>
+      <td>median</td>
+      <td>3168.0</td>
+      <td>0.185621</td>
+      <td>0.036360</td>
+      <td>0.010975</td>
+      <td>0.169593</td>
+      <td>0.190032</td>
+      <td>0.210618</td>
+      <td>0.261224</td>
+    </tr>
+    <tr>
+      <td>Q25</td>
+      <td>3168.0</td>
+      <td>0.140456</td>
+      <td>0.048680</td>
+      <td>0.000229</td>
+      <td>0.111087</td>
+      <td>0.140286</td>
+      <td>0.175939</td>
+      <td>0.247347</td>
+    </tr>
+    <tr>
+      <td>Q75</td>
+      <td>3168.0</td>
+      <td>0.224765</td>
+      <td>0.023639</td>
+      <td>0.042946</td>
+      <td>0.208747</td>
+      <td>0.225684</td>
+      <td>0.243660</td>
+      <td>0.273469</td>
+    </tr>
+    <tr>
+      <td>IQR</td>
+      <td>3168.0</td>
+      <td>0.084309</td>
+      <td>0.042783</td>
+      <td>0.014558</td>
+      <td>0.042560</td>
+      <td>0.094280</td>
+      <td>0.114175</td>
+      <td>0.252225</td>
+    </tr>
+    <tr>
+      <td>skew</td>
+      <td>3168.0</td>
+      <td>3.140168</td>
+      <td>4.240529</td>
+      <td>0.141735</td>
+      <td>1.649569</td>
+      <td>2.197101</td>
+      <td>2.931694</td>
+      <td>34.725453</td>
+    </tr>
+    <tr>
+      <td>kurt</td>
+      <td>3168.0</td>
+      <td>36.568461</td>
+      <td>134.928661</td>
+      <td>2.068455</td>
+      <td>5.669547</td>
+      <td>8.318463</td>
+      <td>13.648905</td>
+      <td>1309.612887</td>
+    </tr>
+    <tr>
+      <td>sp.ent</td>
+      <td>3168.0</td>
+      <td>0.895127</td>
+      <td>0.044980</td>
+      <td>0.738651</td>
+      <td>0.861811</td>
+      <td>0.901767</td>
+      <td>0.928713</td>
+      <td>0.981997</td>
+    </tr>
+    <tr>
+      <td>sfm</td>
+      <td>3168.0</td>
+      <td>0.408216</td>
+      <td>0.177521</td>
+      <td>0.036876</td>
+      <td>0.258041</td>
+      <td>0.396335</td>
+      <td>0.533676</td>
+      <td>0.842936</td>
+    </tr>
+    <tr>
+      <td>mode</td>
+      <td>3168.0</td>
+      <td>0.165282</td>
+      <td>0.077203</td>
+      <td>0.000000</td>
+      <td>0.118016</td>
+      <td>0.186599</td>
+      <td>0.221104</td>
+      <td>0.280000</td>
+    </tr>
+    <tr>
+      <td>centroid</td>
+      <td>3168.0</td>
+      <td>0.180907</td>
+      <td>0.029918</td>
+      <td>0.039363</td>
+      <td>0.163662</td>
+      <td>0.184838</td>
+      <td>0.199146</td>
+      <td>0.251124</td>
+    </tr>
+    <tr>
+      <td>meanfun</td>
+      <td>3168.0</td>
+      <td>0.142807</td>
+      <td>0.032304</td>
+      <td>0.055565</td>
+      <td>0.116998</td>
+      <td>0.140519</td>
+      <td>0.169581</td>
+      <td>0.237636</td>
+    </tr>
+    <tr>
+      <td>minfun</td>
+      <td>3168.0</td>
+      <td>0.036802</td>
+      <td>0.019220</td>
+      <td>0.009775</td>
+      <td>0.018223</td>
+      <td>0.046110</td>
+      <td>0.047904</td>
+      <td>0.204082</td>
+    </tr>
+    <tr>
+      <td>maxfun</td>
+      <td>3168.0</td>
+      <td>0.258842</td>
+      <td>0.030077</td>
+      <td>0.103093</td>
+      <td>0.253968</td>
+      <td>0.271186</td>
+      <td>0.277457</td>
+      <td>0.279114</td>
+    </tr>
+    <tr>
+      <td>meandom</td>
+      <td>3168.0</td>
+      <td>0.829211</td>
+      <td>0.525205</td>
+      <td>0.007812</td>
+      <td>0.419828</td>
+      <td>0.765795</td>
+      <td>1.177166</td>
+      <td>2.957682</td>
+    </tr>
+    <tr>
+      <td>mindom</td>
+      <td>3168.0</td>
+      <td>0.052647</td>
+      <td>0.063299</td>
+      <td>0.004883</td>
+      <td>0.007812</td>
+      <td>0.023438</td>
+      <td>0.070312</td>
+      <td>0.458984</td>
+    </tr>
+    <tr>
+      <td>maxdom</td>
+      <td>3168.0</td>
+      <td>5.047277</td>
+      <td>3.521157</td>
+      <td>0.007812</td>
+      <td>2.070312</td>
+      <td>4.992188</td>
+      <td>7.007812</td>
+      <td>21.867188</td>
+    </tr>
+    <tr>
+      <td>dfrange</td>
+      <td>3168.0</td>
+      <td>4.994630</td>
+      <td>3.520039</td>
+      <td>0.000000</td>
+      <td>2.044922</td>
+      <td>4.945312</td>
+      <td>6.992188</td>
+      <td>21.843750</td>
+    </tr>
+    <tr>
+      <td>modindx</td>
+      <td>3168.0</td>
+      <td>0.173752</td>
+      <td>0.119454</td>
+      <td>0.000000</td>
+      <td>0.099766</td>
+      <td>0.139357</td>
+      <td>0.209183</td>
+      <td>0.932374</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</div>
+<div class="section" id="label-encoding">
+<h1>Label encoding<a class="headerlink" href="#label-encoding" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.preprocessing</span> <span class="kn">import</span> <span class="n">LabelEncoder</span>
+
+<span class="n">labelEncoder</span> <span class="o">=</span> <span class="n">LabelEncoder</span><span class="p">()</span>
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">labelEncoder</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">))</span>
+
+<span class="n">data</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>1475    1
+1935    0
+1615    0
+1524    1
+1567    1
+2754    0
+1669    0
+1909    0
+1501    1
+2087    0
+Name: label, dtype: int64
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;meanfreq&#39;</span><span class="p">],</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a222dea50&gt;
+</pre></div>
+</div>
+<img alt="../_images/demo08_LogisticRegression_9_1.png" src="../_images/demo08_LogisticRegression_9_1.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">.</span><span class="n">boxplot</span><span class="p">(</span><span class="n">by</span> <span class="o">=</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">column</span> <span class="o">=</span><span class="p">[</span><span class="s1">&#39;dfrange&#39;</span><span class="p">],</span> <span class="n">grid</span> <span class="o">=</span> <span class="kc">False</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span> <span class="mi">8</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1a22679610&gt;
+</pre></div>
+</div>
+<img alt="../_images/demo08_LogisticRegression_10_1.png" src="../_images/demo08_LogisticRegression_10_1.png" />
+</div>
+</div>
+</div>
+<div class="section" id="spilting-the-data-into-train-and-test-data">
+<h1>Spilting the data into train and test data<a class="headerlink" href="#spilting-the-data-into-train-and-test-data" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.model_selection</span> <span class="kn">import</span> <span class="n">train_test_split</span>
+
+<span class="n">features</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;label&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">target</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;label&#39;</span><span class="p">]</span>
+
+<span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test_size</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="o">.</span><span class="n">shape</span> <span class="p">,</span> <span class="n">y_train</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((2534, 20), (2534,))
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_test</span><span class="o">.</span><span class="n">shape</span> <span class="p">,</span> <span class="n">y_test</span><span class="o">.</span><span class="n">shape</span> 
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>((634, 20), (634,))
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="logistic-regression-classifier">
+<h1>Logistic Regression Classifier<a class="headerlink" href="#logistic-regression-classifier" title="Permalink to this headline">¶</a></h1>
+<p>https://scikit-learn.org/stable/modules/generated/sklearn.linear_model.LogisticRegression.html</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">confusion_matrix</span>
+
+<span class="n">logistic_model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">)</span>
+
+<span class="n">logistic_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class=&#39;warn&#39;,
+          n_jobs=None, penalty=&#39;l2&#39;, random_state=None, solver=&#39;liblinear&#39;,
+          tol=0.0001, verbose=0, warm_start=False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">logistic_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">confusion_matrix</span> <span class="o">=</span> <span class="n">confusion_matrix</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="n">confusion_matrix</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>[[266  45]
+ [  8 315]]
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Training score : &quot;</span><span class="p">,</span> <span class="n">logistic_model</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Training score :  0.9068666140489345
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+<div class="section" id="accuracy-precision-recall-scores">
+<h1>Accuracy, precision, recall scores<a class="headerlink" href="#accuracy-precision-recall-scores" title="Permalink to this headline">¶</a></h1>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="kn">import</span> <span class="n">accuracy_score</span><span class="p">,</span> <span class="n">precision_score</span><span class="p">,</span> <span class="n">recall_score</span>
+
+<span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">pre</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy : &#39;</span> <span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precision Score : &#39;</span><span class="p">,</span> <span class="n">pre</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recall Score : &#39;</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy :  0.916403785488959
+Precision Score :  0.875
+Recall Score :  0.9752321981424149
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">yellowbrick.target</span> <span class="kn">import</span> <span class="n">FeatureCorrelation</span>
+
+<span class="n">feature_names</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">visualizer</span> <span class="o">=</span> <span class="n">FeatureCorrelation</span><span class="p">(</span><span class="n">labels</span> <span class="o">=</span> <span class="n">feature_names</span><span class="p">)</span>
+
+<span class="n">visualizer</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+
+<span class="n">visualizer</span><span class="o">.</span><span class="n">poof</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="../_images/demo08_LogisticRegression_23_0.png" src="../_images/demo08_LogisticRegression_23_0.png" />
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1c23223cd0&gt;
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">chi2</span><span class="p">,</span> <span class="n">f_classif</span><span class="p">,</span> <span class="n">mutual_info_classif</span>
+<span class="kn">from</span> <span class="nn">sklearn.feature_selection</span> <span class="kn">import</span> <span class="n">SelectKBest</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">## TODO: While recording, re-record from here first with chi2, then with f_classif and then with mutual_info_classif</span>
+
+<span class="n">select_univariate</span> <span class="o">=</span> <span class="n">SelectKBest</span><span class="p">(</span><span class="n">chi2</span><span class="p">,</span> <span class="n">k</span><span class="o">=</span><span class="mi">4</span><span class="p">)</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">target</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">features_mask</span> <span class="o">=</span> <span class="n">select_univariate</span><span class="o">.</span><span class="n">get_support</span><span class="p">()</span>
+
+<span class="n">features_mask</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>array([False,  True, False,  True, False,  True, False, False, False,
+       False, False, False,  True, False, False, False, False, False,
+       False, False])
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_columns</span> <span class="o">=</span> <span class="n">features</span><span class="o">.</span><span class="n">columns</span><span class="p">[</span><span class="n">features_mask</span><span class="p">]</span>
+
+<span class="n">selected_columns</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Index([&#39;sd&#39;, &#39;Q25&#39;, &#39;IQR&#39;, &#39;meanfun&#39;], dtype=&#39;object&#39;)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">selected_features</span> <span class="o">=</span> <span class="n">features</span><span class="p">[</span><span class="n">selected_columns</span><span class="p">]</span>
+
+<span class="n">selected_features</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>sd</th>
+      <th>Q25</th>
+      <th>IQR</th>
+      <th>meanfun</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>0</td>
+      <td>0.064241</td>
+      <td>0.015071</td>
+      <td>0.075122</td>
+      <td>0.084279</td>
+    </tr>
+    <tr>
+      <td>1</td>
+      <td>0.067310</td>
+      <td>0.019414</td>
+      <td>0.073252</td>
+      <td>0.107937</td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>0.083829</td>
+      <td>0.008701</td>
+      <td>0.123207</td>
+      <td>0.098706</td>
+    </tr>
+    <tr>
+      <td>3</td>
+      <td>0.072111</td>
+      <td>0.096582</td>
+      <td>0.111374</td>
+      <td>0.088965</td>
+    </tr>
+    <tr>
+      <td>4</td>
+      <td>0.079146</td>
+      <td>0.078720</td>
+      <td>0.127325</td>
+      <td>0.106398</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">x_train</span><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">y_train</span><span class="p">,</span> <span class="n">y_test</span> <span class="o">=</span> <span class="n">train_test_split</span><span class="p">(</span><span class="n">selected_features</span><span class="p">,</span> <span class="n">target</span><span class="p">,</span> <span class="n">test_size</span> <span class="o">=.</span><span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LogisticRegression</span>
+
+<span class="n">logistic_model</span> <span class="o">=</span> <span class="n">LogisticRegression</span><span class="p">(</span><span class="n">penalty</span><span class="o">=</span><span class="s1">&#39;l2&#39;</span><span class="p">,</span> <span class="n">solver</span><span class="o">=</span><span class="s1">&#39;liblinear&#39;</span><span class="p">)</span>
+<span class="n">logistic_model</span><span class="o">.</span><span class="n">fit</span><span class="p">(</span><span class="n">x_train</span><span class="p">,</span> <span class="n">y_train</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>LogisticRegression(C=1.0, class_weight=None, dual=False, fit_intercept=True,
+          intercept_scaling=1, max_iter=100, multi_class=&#39;warn&#39;,
+          n_jobs=None, penalty=&#39;l2&#39;, random_state=None, solver=&#39;liblinear&#39;,
+          tol=0.0001, verbose=0, warm_start=False)
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">y_pred</span> <span class="o">=</span> <span class="n">logistic_model</span><span class="o">.</span><span class="n">predict</span><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">acc</span> <span class="o">=</span> <span class="n">accuracy_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">pre</span> <span class="o">=</span> <span class="n">precision_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+<span class="n">recall</span> <span class="o">=</span> <span class="n">recall_score</span><span class="p">(</span><span class="n">y_test</span><span class="p">,</span> <span class="n">y_pred</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Accuracy : &#39;</span> <span class="p">,</span> <span class="n">acc</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Precision Score : &#39;</span><span class="p">,</span> <span class="n">pre</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;Recall Score : &#39;</span><span class="p">,</span> <span class="n">recall</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Accuracy :  0.9037854889589906
+Precision Score :  0.8707865168539326
+Recall Score :  0.9538461538461539
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "hossainlab/statsandpy",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            kernelName: "python3",
+            path: "./inferential"
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+              </div>
+              
+        </div>
+    </div>
+    
+    
+    <div class='prev-next-bottom'>
+        
+
+    </div>
+    <footer class="footer mt-5 mt-md-0">
+    <div class="container">
+      <p>
+        
+          By Jubayer Hossain<br/>
+        
+            &copy; Copyright 2020.<br/>
+      </p>
+    </div>
+  </footer>
+</main>
+
+
+      </div>
+    </div>
+
+    
+  <script src="../_static/js/index.3da636dd464baa7582d2.js"></script>
+
+
+    
+  </body>
+</html>
