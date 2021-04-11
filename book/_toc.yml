@@ -1,5 +1,15 @@
 - file: index
 
-- part: Introduction to Statistics
+- part: Introduction
   chapters:
-  - file: notebooks/01-Introduction-to-Statistics
+  - file: intro/01-Introduction-to-Statistics
+
+- part: Descriptive Statistics
+  chapters:
+  - file: descriptive/01-Reading-And-Exploring-Data
+  - file: descriptive/02-Descriptive-Statistics-For-Central-Tendency-Using-Pandas
+  - file: descriptive/03-Descriptive-Statistics-For-Variability-Using-Pandas
+
+- part: Inferential Statistics
+  chapters:
+  - file: inferential/01-Introduction-to-Statistics

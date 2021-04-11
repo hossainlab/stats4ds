@@ -1,7 +1,7 @@
 # Welcome
 Welcome to `Statistics using Python`. This is a short sequence of notes on Statistics written by [Jubayer Hossian](https://jhossain.me/).
 
-This site is available online at [github](https://hossainlab.github.io/aml/)
+This site is available online at [github](https://hossainlab.github.io/statsandpy/)
 
 
 ```{note}

@@ -54,37 +54,3 @@
 # ### Secondary Sources of Data 
 # - Collection of data from agency which already has collected data and processed it.
 # - Conducting interviews, experimentation
-
-# ### Types of Data 
-
-# ![types]()
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-
-
-# In[ ]:
-
-
-
-

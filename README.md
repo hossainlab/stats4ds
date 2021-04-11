@@ -1,11 +1,4 @@
-# Data Science Notes Template
-
-## How to create your own Jupyter Book
-For the purposes of this project, we are replicating the content under [Python
-Programming for Quantitative Economics](https://python-programming.quantecon.org). To demonstrate at a high
-level what has been done, we first convert each source file from rST to
-MyST-syntax markdown, then build the book by following the instructions in the
-[Books with Jupyter documentation](https://beta.jupyterbook.org/intro.html).
+# How to create your own Jupyter Book
 
 ### Creating an environment
 1. `conda env create -f environment.yml`
@@ -20,4 +13,3 @@ If you would like to work with a clean build, you can empty the build folder by 
 
 Run `ghp-import -n -p -f book/_build/html`
 
-If you are working on improving the `quantecon-example`, the publishing of your work is taken care by Github workflows.
